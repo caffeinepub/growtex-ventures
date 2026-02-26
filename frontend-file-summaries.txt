@@ -1,0 +1,15 @@
+{
+  "frontend/src/index.css": "Global styles with a green-forward OKLCH color system (bright greens, whites, clean neutrals inspired by startupflora.com), Plus Jakarta Sans font import, and updated utility classes for green gradients, glow effects, and animations.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Plus Jakarta Sans display font, green and neutral color palettes replacing navy/teal, updated shadow tokens, and keyframe animations for the new green-forward design system.",
+  "frontend/src/components/AnimationWrapper.tsx": "Reusable scroll-triggered animation wrapper using IntersectionObserver that applies fade-up, fade-in, slide-left, or slide-right animations with configurable delay when elements enter the viewport.",
+  "frontend/src/components/Header.tsx": "Sticky navigation header with the GrowteX Ventures wordmark logo image, smooth-scroll nav links, green CTA button, and responsive mobile hamburger menu — all styled with the new light green palette.",
+  "frontend/src/components/HeroSection.tsx": "Full-viewport hero section with green hero background image, the GrowteX wordmark logo, updated tagline \"From Vision to Victory\", updated stats, and green-styled CTA buttons.",
+  "frontend/src/components/ServicesSection.tsx": "Responsive 3-column grid of 8 service cards covering DPIIT Registration, MSME Udyam, Trademark, Social Media Management, Website Development, SEO, Performance Advertising, and Business Growth Consulting — styled with the green palette.",
+  "frontend/src/components/AboutSection.tsx": "Split-layout about section with the green about illustration, updated company mission text referencing registrations and digital services, values checklist, and stat counters — all using the green-forward palette.",
+  "frontend/src/components/TestimonialsSection.tsx": "6-card testimonials grid with India-focused client quotes covering DPIIT, social media, website, ads, trademark, and MSME services — styled with white cards and green accents.",
+  "frontend/src/components/ProcessSection.tsx": "4-step process section (Discovery, Strategy, Execution, Growth) as a horizontal timeline on desktop and vertical stack on mobile, updated to the green-forward palette with white backgrounds.",
+  "frontend/src/components/ContactSection.tsx": "Contact section with info panel showing clickable phone (tel:7999866007) and email (mailto:info@growteX.com) links, a contact form, and availability badge — all styled with the green palette.",
+  "frontend/src/components/Footer.tsx": "Full footer with GrowteX wordmark logo (inverted for dark background), \"From Vision to Victory\" tagline, updated service links, company links, Contact column with phone and email links, social icons including YouTube, and caffeine.ai attribution.",
+  "frontend/src/App.tsx": "Root app component that composes all page sections (Header, Hero, Services, About, Testimonials, Process, Contact, Footer) in a single-page layout.",
+  "frontend/index.html": "HTML entry point with updated title \"GrowteX Ventures — From Vision to Victory\", updated meta description referencing all services, and added OG tags."
+}

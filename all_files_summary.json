@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Empty Motoko actor serving as the backend entry point with no implemented functionality.",
+  "feature_evidence.json": "Feature evidence report mapping implemented features (logo, color palette, tagline, service cards, etc.) to their associated files, components, and test IDs with confidence ratings.",
+  "frontend-file-summaries.txt": "JSON document containing one-sentence summaries of each frontend source file, describing their purpose and design system details.",
+  "frontend/index.css": "Base Tailwind CSS file defining OKLCH CSS custom properties for light and dark color themes used by shadcn/ui components.",
+  "frontend/index.html": "HTML entry point with the page title 'GrowteX Ventures — From Vision to Victory', meta description covering all services, and Open Graph tags.",
+  "frontend/src/App.tsx": "Root React component that assembles the single-page layout by composing all section components from Header to Footer.",
+  "frontend/src/components/AboutSection.tsx": "Split-layout about section featuring a green illustration, company mission copy, a values checklist with icons, and animated stat counters styled with the green palette.",
+  "frontend/src/components/AnimationWrapper.tsx": "Reusable wrapper component that uses IntersectionObserver to trigger fade-up, fade-in, slide-left, or slide-right CSS animations when the wrapped element enters the viewport.",
+  "frontend/src/components/ContactSection.tsx": "Contact section with a clickable phone and email info panel, a controlled contact form with simulated async submission, and green-palette styling.",
+  "frontend/src/components/Footer.tsx": "Renders the site footer with brand info, social media links, service/company navigation columns, and contact details on a dark green background.",
+  "frontend/src/components/Header.tsx": "Fixed top navigation header with scroll-aware styling, desktop nav links, a 'Book a Free Call' CTA button, and a collapsible mobile menu.",
+  "frontend/src/components/HeroSection.tsx": "Full-screen hero section with background image, tagline, subheadline, CTA buttons for contact and services, and a stats row highlighting key metrics.",
+  "frontend/src/components/ProcessSection.tsx": "Displays GrowteX's 4-step process (Discovery, Strategy, Execution, Growth) in a responsive grid with icons, numbered badges, and animated entrance effects.",
+  "frontend/src/components/ServicesSection.tsx": "Renders a grid of eight service cards covering business registrations, digital marketing, SEO, advertising, and consulting, each with an icon and description.",
+  "frontend/src/components/TestimonialsSection.tsx": "Renders a responsive grid of six client testimonials for GrowteX Ventures, each displayed as an animated card with a quote, avatar initials, and client details.",
+  "frontend/src/hooks/useActor.ts": "Custom hook that creates and caches an ICP backend actor (authenticated or anonymous) using React Query, and invalidates dependent queries whenever the actor changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an InternetIdentityProvider and useInternetIdentity hook for managing DFINITY Internet Identity authentication state, including login, logout, and identity persistence via AuthClient.",
+  "frontend/src/index.css": "Global stylesheet that imports Google Fonts, defines a green-forward OKLCH CSS custom property theme, and adds Tailwind utility classes for gradients, animations, and card glow effects.",
+  "frontend/src/main.tsx": "Application entry point that mounts the React app wrapped with QueryClientProvider and InternetIdentityProvider.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending the default theme with custom OKLCH-based green and neutral color scales, display/sans font families, and plugins for typography, container queries, and animations.",
+  "project_state.json": "Tracks the current build state of the GrowteX Ventures single-page website project, including version, architectural notes, existing features, known issues, and image requirements."
+}

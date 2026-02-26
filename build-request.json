@@ -1,0 +1,133 @@
+{
+  "kind": "build_request",
+  "title": "Rebrand GrowteX Ventures: Logo, Color Palette, Tagline, Services, and Contact Details",
+  "projectName": "GrowteX Ventures",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "text": "Design and render a custom GrowteX Ventures wordmark logo. The logo should use bold, modern sans-serif typography with a green accent (matching startupflora.com palette) and incorporate a subtle growth-oriented graphic element (e.g., upward arrow or leaf motif). Use it in the Header, Hero, and Footer components, replacing any placeholder logo.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4",
+          "msg-8"
+        ],
+        "quotes": [
+          "you have full authority to create a wordmark logo",
+          "Wordmark Logo — Custom GrowteX Ventures wordmark designed from scratch"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A wordmark logo image is generated and saved to frontend/public/assets/generated/",
+        "The logo appears in the Header, Hero section, and Footer",
+        "The logo uses a green-forward color consistent with the site's updated palette"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Update the entire site's color palette to match startupflora.com's visual identity: replace the current dark navy/charcoal theme with a green-forward, clean neutral palette (bright greens, whites, light grays, and clean accent tones). Update CSS variables in frontend/src/index.css and frontend/tailwind.config.js to reflect the new palette and apply consistently across all sections.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4",
+          "msg-8"
+        ],
+        "quotes": [
+          "use colors as used in www.startupflora.com website and use its color palette",
+          "Color Palette — Updated to match startupflora.com's green-forward, clean palette"
+        ]
+      },
+      "acceptanceCriteria": [
+        "CSS custom properties in index.css are updated to a green-forward, clean neutral palette",
+        "Tailwind config color tokens reflect the new palette",
+        "All sections (Header, Hero, Services, About, Testimonials, Process, Contact, Footer) visually use the updated colors",
+        "No dark navy or charcoal backgrounds remain unless used as an intentional contrast accent"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Update the site tagline to 'From Vision to Victory' everywhere it appears: the Hero section subheadline/tagline area, the Footer tagline, the HTML <title> and meta description in frontend/index.html, and any other location on the page where the old tagline or a generic descriptor is shown.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4",
+          "msg-8"
+        ],
+        "quotes": [
+          "tagline is from vision to victory",
+          "Tagline — 'From Vision to Victory' across hero, footer, and meta"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero section displays 'From Vision to Victory' as the tagline",
+        "Footer displays 'From Vision to Victory' beneath the wordmark",
+        "HTML <title> and meta description in index.html reference GrowteX Ventures and 'From Vision to Victory'",
+        "No old tagline text remains on the page"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Replace all service cards in the Services section (ServicesSection.tsx) with the following 8 updated services, each with a relevant icon and a short description: (1) Startup India DPIIT Registration & Certification Application Assistance, (2) MSME Udyam Aadhaar Registration & Certification, (3) Trademark Registration & Application Services, (4) Digital Marketing — Social Media Management for Instagram, Facebook, LinkedIn & YouTube, (5) Website Development — WordPress, Shopify & Custom Code, (6) SEO — On-Page & Off-Page Services, (7) Performance & Advertising Services — Meta Ads, Google Ads, LinkedIn Ads & YouTube Ads. Lay out as a responsive grid (3 columns on desktop, 2 on tablet, 1 on mobile).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4",
+          "msg-8"
+        ],
+        "quotes": [
+          "highlight the below mentioned service in the service page",
+          "Startup india DPIIT registration and certification application assistance, MSME Udhyam aadhar registration and certification, trademark registration and application services, Digital marketing servives like SOcial media management for instagtam, facebook, linkedin, youtube. Website development services, wordpress, shopify and custom code website, SEO- on page and offpages services, performance and advertising services around meta, google ads,linkedin ads, youtube ads"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Exactly 8 service cards are displayed in ServicesSection",
+        "Each card has a relevant icon, the correct service title, and a short description",
+        "Grid is 3 columns on desktop, 2 on tablet, 1 on mobile",
+        "Cards use the updated green-forward color palette with hover effects"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Add contact details — phone number 7999866007 and email info@growteX.com — to the Contact section (ContactSection.tsx) and the Footer (Footer.tsx). In the Contact section, display these in the info panel alongside any existing location or social links. In the Footer, show them in the Contact column. Ensure the email is a clickable mailto: link and the phone is a clickable tel: link.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6",
+          "msg-8",
+          "msg-10"
+        ],
+        "quotes": [
+          "phone number : 7999866007",
+          "email: info@growteX.com",
+          "The phone number and email will be displayed in the Contact section, footer, and anywhere contact info appears"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Phone 7999866007 appears in ContactSection info panel as a tel: link",
+        "Email info@growteX.com appears in ContactSection info panel as a mailto: link",
+        "Phone and email appear in the Footer's Contact column",
+        "Both are styled consistently with the surrounding text and the updated palette"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui/",
+    "Do not modify frontend/src/main.tsx",
+    "All generated image assets must be placed in frontend/public/assets/generated/"
+  ],
+  "nonGoals": [
+    "Adding a physical address or map — no location was provided",
+    "Building separate multi-page routing — site remains a single-page layout",
+    "Backend changes — no data persistence or API integration required",
+    "Internet Identity or authentication features"
+  ],
+  "imageRequirements": {
+    "required": [
+      "GrowteX Ventures wordmark logo with bold green sans-serif lettering and a small upward-arrow or leaf growth motif, on a transparent or white background (growtex-logo.dim_400x100.png)",
+      "Hero section background: vibrant green gradient with abstract geometric growth lines and a subtle cityscape silhouette at the bottom, optimized for full-width display (hero-bg-green.dim_1920x1080.png)",
+      "About section illustration: a clean, flat-style graphic showing a business team collaborating around a growth chart with upward trend, green and white tones (about-illustration-green.dim_800x600.png)"
+    ],
+    "edits": []
+  }
+}

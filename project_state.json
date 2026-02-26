@@ -1,0 +1,214 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Building a website for GrowteX Ventures (consulting and marketing company), cloned after startupflora.com in design and structure. Updated with startupflora.com color palette (green-forward, clean neutrals), custom wordmark logo, tagline 'From Vision to Victory', contact details (phone: 7999866007, email: info@growteX.com), and 8 specific services including DPIIT registration, MSME Udyam, Trademark, Digital Marketing, Website Development, SEO, and Performance Advertising.",
+  "architectural_notes": [
+    "Single-page website layout mirroring startupflora.com structure and design style",
+    "Branding: company name is GrowteX Ventures (consulting and marketing)",
+    "Color palette inspired by startupflora.com: green-forward with clean whites and neutral tones (replacing dark navy/charcoal theme)",
+    "Contact info: phone 7999866007, email info@growteX.com — displayed in contact section and footer"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- GrowteX Ventures wordmark logo with bold green sans-serif lettering and a small upward-arrow or leaf growth motif, on a transparent or white background (growtex-logo.dim_400x100.png)\n- Hero section background: vibrant green gradient with abstract geometric growth lines and a subtle cityscape silhouette at the bottom, optimized for full-width display (hero-bg-green.dim_1920x1080.png)\n- About section illustration: a clean, flat-style graphic showing a business team collaborating around a growth chart with upward trend, green and white tones (about-illustration-green.dim_800x600.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-sticky-navigation-header-with-the-growtex-ventures-logo-wordmark-on-the-left-and-nav-links-home-services-about-testimonials-contact-on-the-right-include-a-prominent-cta-button-get-started-or-book-a-call-in-the-header",
+      "title": "Create a sticky navigation header with the GrowteX Ventures logo/wordmark on the left and nav links (Home, Services, About, Testimonials, Contact) on the right. Include a prominent CTA button ('Get Started' or 'Book a Call') in the header.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-full-width-hero-section-with-a-bold-headline-e-g-grow-smarter-scale-faster-a-subheadline-describing-growtex-ventures-as-a-consulting-and-marketing-company-two-cta-buttons-book-a-free-call-and-our-services-and-a-hero-background-image-or-graphic",
+      "title": "Build a full-width hero section with a bold headline (e.g., 'Grow Smarter. Scale Faster.'), a subheadline describing GrowteX Ventures as a consulting and marketing company, two CTA buttons ('Book a Free Call' and 'Our Services'), and a hero background image or graphic.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-services-section-that-showcases-growtex-ventures-consulting-and-marketing-offerings-as-a-grid-of-cards-each-card-should-have-an-icon-a-service-title-e-g-business-strategy-digital-marketing-brand-development-growth-consulting-market-research-performance-analytics-and-a-short-description",
+      "title": "Create a Services section that showcases GrowteX Ventures' consulting and marketing offerings as a grid of cards. Each card should have an icon, a service title (e.g., 'Business Strategy', 'Digital Marketing', 'Brand Development', 'Growth Consulting', 'Market Research', 'Performance Analytics'), and a short description.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-about-section-for-growtex-ventures-describing-the-company-s-mission-values-and-approach-include-a-split-layout-with-text-on-one-side-and-an-image-or-graphic-on-the-other-along-with-2-3-key-stats-e-g-clients-served-years-of-experience-success-rate",
+      "title": "Build an About section for GrowteX Ventures describing the company's mission, values, and approach. Include a split layout with text on one side and an image or graphic on the other, along with 2–3 key stats (e.g., 'clients served', 'years of experience', 'success rate').",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-testimonials-social-proof-section-with-a-carousel-or-grid-of-client-testimonials-each-testimonial-card-should-include-a-quote-client-name-title-and-company",
+      "title": "Add a Testimonials / Social Proof section with a carousel or grid of client testimonials. Each testimonial card should include a quote, client name, title, and company.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-how-it-works-process-section-with-a-numbered-step-by-step-flow-showing-how-growtex-ventures-engages-with-clients-e-g-discovery-strategy-execution-growth-display-as-a-horizontal-timeline-on-desktop-and-vertical-stack-on-mobile",
+      "title": "Create a How It Works / Process section with a numbered step-by-step flow showing how GrowteX Ventures engages with clients (e.g., Discovery → Strategy → Execution → Growth). Display as a horizontal timeline on desktop and vertical stack on mobile.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-contact-cta-section-with-a-full-width-banner-that-includes-a-bold-call-to-action-headline-ready-to-grow-subtext-and-a-contact-form-with-fields-for-name-email-company-and-message-plus-a-submit-button",
+      "title": "Build a Contact / CTA section with a full-width banner that includes a bold call-to-action headline ('Ready to Grow?'), subtext, and a contact form with fields for Name, Email, Company, and Message, plus a submit button.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-footer-with-the-growtex-ventures-logo-wordmark-a-short-company-tagline-navigation-links-organized-in-columns-services-company-contact-social-media-icon-links-and-a-copyright-notice",
+      "title": "Create a footer with the GrowteX Ventures logo/wordmark, a short company tagline, navigation links organized in columns (Services, Company, Contact), social media icon links, and a copyright notice.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-bold-modern-visual-theme-throughout-the-site-dark-navy-or-charcoal-primary-background-with-vibrant-green-or-teal-as-the-accent-color-clean-sans-serif-typography-large-headings-generous-whitespace-card-based-layouts-with-subtle-shadows-and-smooth-scroll-triggered-fade-in-animations-for-sections-the-overall-aesthetic-should-feel-premium-growth-oriented-and-professional-consistent-across-all-sections",
+      "title": "Apply a bold, modern visual theme throughout the site: dark navy or charcoal primary background with vibrant green or teal as the accent color, clean sans-serif typography (large headings, generous whitespace), card-based layouts with subtle shadows, and smooth scroll-triggered fade-in animations for sections. The overall aesthetic should feel premium, growth-oriented, and professional — consistent across all sections.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-all-generated-images-as-static-assets-from-frontend-public-assets-generated-and-reference-them-throughout-the-applicable-sections-hero-background-about-section-illustration",
+      "title": "Render all generated images as static assets from frontend/public/assets/generated and reference them throughout the applicable sections (hero background, about section illustration).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-and-render-a-custom-growtex-ventures-wordmark-logo-the-logo-should-use-bold-modern-sans-serif-typography-with-a-green-accent-matching-startupflora-com-palette-and-incorporate-a-subtle-growth-oriented-graphic-element-e-g-upward-arrow-or-leaf-motif-use-it-in-the-header-hero-and-footer-components-replacing-any-placeholder-logo",
+      "title": "Design and render a custom GrowteX Ventures wordmark logo. The logo should use bold, modern sans-serif typography with a green accent (matching startupflora.com palette) and incorporate a subtle growth-oriented graphic element (e.g., upward arrow or leaf motif). Use it in the Header, Hero, and Footer components, replacing any placeholder logo.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-entire-site-s-color-palette-to-match-startupflora-com-s-visual-identity-replace-the-current-dark-navy-charcoal-theme-with-a-green-forward-clean-neutral-palette-bright-greens-whites-light-grays-and-clean-accent-tones-update-css-variables-in-frontend-src-index-css-and-frontend-tailwind-config-js-to-reflect-the-new-palette-and-apply-consistently-across-all-sections",
+      "title": "Update the entire site's color palette to match startupflora.com's visual identity: replace the current dark navy/charcoal theme with a green-forward, clean neutral palette (bright greens, whites, light grays, and clean accent tones). Update CSS variables in frontend/src/index.css and frontend/tailwind.config.js to reflect the new palette and apply consistently across all sections.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-tagline-to-from-vision-to-victory-everywhere-it-appears-the-hero-section-subheadline-tagline-area-the-footer-tagline-the-html-title-and-meta-description-in-frontend-index-html-and-any-other-location-on-the-page-where-the-old-tagline-or-a-generic-descriptor-is-shown",
+      "title": "Update the site tagline to 'From Vision to Victory' everywhere it appears: the Hero section subheadline/tagline area, the Footer tagline, the HTML <title> and meta description in frontend/index.html, and any other location on the page where the old tagline or a generic descriptor is shown.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-all-service-cards-in-the-services-section-servicessection-tsx-with-the-following-8-updated-services-each-with-a-relevant-icon-and-a-short-description-1-startup-india-dpiit-registration-certification-application-assistance-2-msme-udyam-aadhaar-registration-certification-3-trademark-registration-application-services-4-digital-marketing-social-media-management-for-instagram-facebook-linkedin-youtube-5-website-development-wordpress-shopify-custom-code-6-seo-on-page-off-page-services-7-performance-advertising-services-meta-ads-google-ads-linkedin-ads-youtube-ads-lay-out-as-a-responsive-grid-3-columns-on-desktop-2-on-tablet-1-on-mobile",
+      "title": "Replace all service cards in the Services section (ServicesSection.tsx) with the following 8 updated services, each with a relevant icon and a short description: (1) Startup India DPIIT Registration & Certification Application Assistance, (2) MSME Udyam Aadhaar Registration & Certification, (3) Trademark Registration & Application Services, (4) Digital Marketing — Social Media Management for Instagram, Facebook, LinkedIn & YouTube, (5) Website Development — WordPress, Shopify & Custom Code, (6) SEO — On-Page & Off-Page Services, (7) Performance & Advertising Services — Meta Ads, Google Ads, LinkedIn Ads & YouTube Ads. Lay out as a responsive grid (3 columns on desktop, 2 on tablet, 1 on mobile).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-contact-details-phone-number-7999866007-and-email-info-growtex-com-to-the-contact-section-contactsection-tsx-and-the-footer-footer-tsx-in-the-contact-section-display-these-in-the-info-panel-alongside-any-existing-location-or-social-links-in-the-footer-show-them-in-the-contact-column-ensure-the-email-is-a-clickable-mailto-link-and-the-phone-is-a-clickable-tel-link",
+      "title": "Add contact details — phone number 7999866007 and email info@growteX.com — to the Contact section (ContactSection.tsx) and the Footer (Footer.tsx). In the Contact section, display these in the info panel alongside any existing location or social links. In the Footer, show them in the Contact column. Ensure the email is a clickable mailto: link and the phone is a clickable tel: link.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Hero section with headline, subheadline, and CTA buttons",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Services/offerings section showcasing consulting and marketing services",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "About section for GrowteX Ventures company info",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Testimonials/social proof section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Contact/CTA section with form or booking link",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Navigation header with logo and nav links",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Footer with links and company info",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Custom GrowteX Ventures wordmark logo",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Update color palette to match startupflora.com (green-forward, clean neutrals)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Update tagline to 'From Vision to Victory' across hero, footer, and meta",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Add contact details: phone 7999866007 and email info@growteX.com in contact section and footer",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Update services to: DPIIT Registration, MSME Udyam, Trademark, Digital Marketing (Social Media), Website Development (WordPress/Shopify/Custom), SEO (On/Off-Page), Performance Advertising (Meta/Google/LinkedIn/YouTube Ads)",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "GrowteX Ventures",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

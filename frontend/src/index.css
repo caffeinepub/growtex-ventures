@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Green-forward light palette inspired by startupflora.com */
+    --background: 0.98 0.005 140;
+    --foreground: 0.18 0.025 145;
+
+    --card: 1.0 0 0;
+    --card-foreground: 0.18 0.025 145;
+
+    --popover: 1.0 0 0;
+    --popover-foreground: 0.18 0.025 145;
+
+    /* Vibrant green as primary */
+    --primary: 0.55 0.18 145;
+    --primary-foreground: 0.99 0 0;
+
+    --secondary: 0.94 0.03 145;
+    --secondary-foreground: 0.25 0.04 145;
+
+    --muted: 0.94 0.015 145;
+    --muted-foreground: 0.50 0.03 145;
+
+    --accent: 0.55 0.18 145;
+    --accent-foreground: 0.99 0 0;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.025 145;
+    --input: 0.90 0.02 145;
+    --ring: 0.55 0.18 145;
+
+    --chart-1: 0.55 0.18 145;
+    --chart-2: 0.65 0.15 155;
+    --chart-3: 0.45 0.14 135;
+    --chart-4: 0.70 0.16 160;
+    --chart-5: 0.60 0.17 150;
+
+    --sidebar: 0.96 0.01 145;
+    --sidebar-foreground: 0.18 0.025 145;
+    --sidebar-primary: 0.55 0.18 145;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.92 0.03 145;
+    --sidebar-accent-foreground: 0.25 0.04 145;
+    --sidebar-border: 0.88 0.025 145;
+    --sidebar-ring: 0.55 0.18 145;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .text-gradient-green {
+    background: linear-gradient(135deg, oklch(0.55 0.18 145), oklch(0.68 0.20 155));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(oklch(0.88 0.025 145 / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.88 0.025 145 / 0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 0 30px oklch(0.55 0.18 145 / 0.12), 0 8px 32px oklch(0 0 0 / 0.08);
+  }
+
+  .section-divider {
+    background: linear-gradient(90deg, transparent, oklch(0.55 0.18 145 / 0.4), transparent);
+    height: 1px;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.7s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .hero-glow {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.55 0.18 145 / 0.10), transparent 70%);
+  }
+
+  .green-glow-btn {
+    box-shadow: 0 0 20px oklch(0.55 0.18 145 / 0.35);
+  }
+
+  .green-glow-btn:hover {
+    box-shadow: 0 0 35px oklch(0.55 0.18 145 / 0.55);
+  }
+}
