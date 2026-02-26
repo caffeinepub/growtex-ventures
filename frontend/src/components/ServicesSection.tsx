@@ -1,119 +1,100 @@
-import {
-  FileCheck,
-  Building2,
-  ShieldCheck,
-  Share2,
-  Globe,
-  Search,
-  Megaphone,
-  BarChart2,
-} from 'lucide-react';
+import { useRef } from 'react';
 import AnimationWrapper from './AnimationWrapper';
+import { useScrollDepth } from '@/hooks/useScrollDepth';
 
 const services = [
   {
-    icon: FileCheck,
-    title: 'Startup India DPIIT Registration',
-    description:
-      'Complete assistance with Startup India DPIIT registration and certification application — from documentation to approval, we handle it all.',
+    icon: '📈',
+    title: 'Performance Marketing',
+    description: 'Data-driven paid campaigns across Google, Meta, and programmatic channels that maximize ROI and scale your customer acquisition.',
   },
   {
-    icon: Building2,
-    title: 'MSME Udyam Aadhaar Registration',
-    description:
-      'Hassle-free MSME Udyam Aadhaar registration and certification services to help your business access government benefits and schemes.',
+    icon: '🔍',
+    title: 'SEO & Content Strategy',
+    description: 'Dominate search rankings with technical SEO, strategic content creation, and authority-building link acquisition.',
   },
   {
-    icon: ShieldCheck,
-    title: 'Trademark Registration',
-    description:
-      'Protect your brand with our end-to-end trademark registration and application services — search, filing, and follow-up included.',
+    icon: '🎨',
+    title: 'Brand Identity & Design',
+    description: 'Craft a compelling visual identity that resonates with your audience and differentiates you from the competition.',
   },
   {
-    icon: Share2,
-    title: 'Social Media Management',
-    description:
-      'Strategic social media management for Instagram, Facebook, LinkedIn, and YouTube — content creation, scheduling, and community growth.',
+    icon: '💻',
+    title: 'Web Development',
+    description: 'High-performance websites and web applications built for conversion, speed, and seamless user experience.',
   },
   {
-    icon: Globe,
-    title: 'Website Development',
-    description:
-      'Professional website development on WordPress, Shopify, and custom code — responsive, fast, and built to convert visitors into customers.',
+    icon: '📱',
+    title: 'Social Media Marketing',
+    description: 'Build engaged communities and drive brand awareness through strategic social media management and content creation.',
   },
   {
-    icon: Search,
-    title: 'SEO Services',
-    description:
-      'Comprehensive on-page and off-page SEO strategies to boost your organic rankings, drive qualified traffic, and grow your online presence.',
+    icon: '✉️',
+    title: 'Email Marketing',
+    description: 'Automated email sequences and campaigns that nurture leads, retain customers, and drive repeat revenue.',
   },
   {
-    icon: Megaphone,
-    title: 'Performance & Advertising',
-    description:
-      'High-ROI advertising campaigns across Meta Ads, Google Ads, LinkedIn Ads, and YouTube Ads — targeted, data-driven, and results-focused.',
+    icon: '📊',
+    title: 'Analytics & Insights',
+    description: 'Turn data into decisions with comprehensive analytics dashboards, attribution modeling, and actionable growth insights.',
   },
   {
-    icon: BarChart2,
-    title: 'Business Growth Consulting',
-    description:
-      'End-to-end growth consulting to help startups and SMEs scale — from market strategy and competitive analysis to execution and KPI tracking.',
+    icon: '🚀',
+    title: 'Growth Consulting',
+    description: 'Strategic advisory and hands-on execution to identify growth levers, optimize funnels, and accelerate your business trajectory.',
   },
 ];
 
+function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const depth = useScrollDepth(cardRef);
+
+  // Only apply scroll-depth transform on larger screens
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const translateY = isMobile ? 0 : (depth - 0.5) * -8;
+  const scale = isMobile ? 1 : 1 + (depth - 0.5) * 0.02;
+
+  return (
+    <AnimationWrapper delay={index * 80} className="h-full">
+      <div
+        ref={cardRef}
+        className="h-full bg-card border border-border/50 rounded-2xl p-5 sm:p-6 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group"
+        style={{
+          transform: `translateY(${translateY}px) scale(${scale})`,
+          willChange: 'transform',
+        }}
+      >
+        <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+          {service.icon}
+        </div>
+        <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">{service.title}</h3>
+        <p className="text-sm text-foreground/60 leading-relaxed">{service.description}</p>
+      </div>
+    </AnimationWrapper>
+  );
+}
+
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 lg:py-32 bg-green-50 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-green-200/30 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-green-200/20 blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <AnimationWrapper className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-300 bg-green-100 text-green-700 text-sm font-medium mb-5">
-            What We Do
+    <section id="services" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimationWrapper className="text-center mb-10 sm:mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 mb-4">
+            <span className="text-primary text-xs font-semibold tracking-wider uppercase">What We Do</span>
           </div>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-5">
-            Services Built for{' '}
-            <span className="text-gradient-green">Real Growth</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-3 sm:mb-4">
+            Services That Drive{' '}
+            <span className="text-primary">Real Growth</span>
           </h2>
-          <p className="text-lg text-neutral-500 max-w-2xl mx-auto">
-            From business registrations to digital marketing and advertising — we offer
-            comprehensive solutions tailored to help your business thrive.
+          <p className="text-sm sm:text-base md:text-lg text-foreground/60 max-w-2xl mx-auto">
+            From strategy to execution, we offer a full suite of digital growth services tailored to your business goals.
           </p>
         </AnimationWrapper>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <AnimationWrapper
-                key={service.title}
-                delay={index * 80}
-                animation="fade-up"
-              >
-                <div className="group relative bg-white border border-green-100 rounded-2xl p-7 hover:border-green-300 card-glow transition-all duration-300 cursor-default h-full shadow-card hover:shadow-card-hover">
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-green-100 border border-green-200 flex items-center justify-center mb-5 group-hover:bg-green-500 group-hover:border-green-500 transition-all duration-300">
-                    <Icon className="w-6 h-6 text-green-600 group-hover:text-white transition-colors duration-300" strokeWidth={1.75} />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="font-display text-xl font-bold text-foreground mb-3 group-hover:text-green-600 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-neutral-500 text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Hover accent line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-green-400/60 to-transparent rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              </AnimationWrapper>
-            );
-          })}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} service={service} index={index} />
+          ))}
         </div>
       </div>
     </section>

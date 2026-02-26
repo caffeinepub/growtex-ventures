@@ -1,16 +1,19 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
-  "summary": "Building a website for GrowteX Ventures (consulting and marketing company), cloned after startupflora.com in design and structure. Updated with startupflora.com color palette (green-forward, clean neutrals), custom wordmark logo, tagline 'From Vision to Victory', contact details (phone: 7999866007, email: info@growteX.com), and 8 specific services including DPIIT registration, MSME Udyam, Trademark, Digital Marketing, Website Development, SEO, and Performance Advertising.",
+  "projectStateVersion": 15,
+  "summary": "Building a website for GrowteX Ventures (consulting and marketing company), cloned after startupflora.com in structure. Now restyled to match Taggl Labs (tagglabs.in) visual identity: dark/black backgrounds, bold agency typography, bright GrowteX green as primary accent color, premium creative/agency feel. Tagline 'From Vision to Victory', contact details (phone: 7999866007, email: info@growteX.com), 8 specific services including DPIIT registration, MSME Udyam, Trademark, Digital Marketing, Website Development, SEO, and Performance Advertising. Includes parallax scrolling and scroll-linked animations. The 'The GrowteX Journey' video portfolio section has been removed entirely. Site is being made fully responsive for both mobile and web.",
   "architectural_notes": [
     "Single-page website layout mirroring startupflora.com structure and design style",
     "Branding: company name is GrowteX Ventures (consulting and marketing)",
-    "Color palette inspired by startupflora.com: green-forward with clean whites and neutral tones (replacing dark navy/charcoal theme)",
-    "Contact info: phone 7999866007, email info@growteX.com — displayed in contact section and footer"
+    "Contact info: phone 7999866007, email info@growteX.com — displayed in contact section and footer",
+    "Scroll animations: parallax hero background, scroll-triggered reveal animations for all sections, cards, stats, and timeline steps using Intersection Observer or scroll-linked approach",
+    "Visual theme changed to Taggl Labs-inspired: dark/black backgrounds, bold agency typography, bright green accents — replacing the green-forward light/neutral palette",
+    "Responsive design: collapsible mobile nav, stacked card layouts on small screens, touch-friendly tap targets, properly scaled typography, and clean degradation of parallax/animation effects on mobile"
   ],
-  "known_issues": [],
+  "known_issues": [
+    "Footer has dark green background causing poor content visibility and contrast issues"
+  ],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- GrowteX Ventures wordmark logo with bold green sans-serif lettering and a small upward-arrow or leaf growth motif, on a transparent or white background (growtex-logo.dim_400x100.png)\n- Hero section background: vibrant green gradient with abstract geometric growth lines and a subtle cityscape silhouette at the bottom, optimized for full-width display (hero-bg-green.dim_1920x1080.png)\n- About section illustration: a clean, flat-style graphic showing a business team collaborating around a growth chart with upward trend, green and white tones (about-illustration-green.dim_800x600.png)",
   "existing_features": [
     {
       "id": "feature-create-a-sticky-navigation-header-with-the-growtex-ventures-logo-wordmark-on-the-left-and-nav-links-home-services-about-testimonials-contact-on-the-right-include-a-prominent-cta-button-get-started-or-book-a-call-in-the-header",
@@ -131,6 +134,222 @@
         "REQ-15"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-footer-component-frontend-src-components-footer-tsx-to-replace-the-dark-green-background-with-a-lighter-neutral-tone-that-fits-the-green-forward-clean-neutral-palette-used-across-the-rest-of-the-site-e-g-light-gray-off-white-or-a-very-light-green-tint-ensure-all-footer-content-brand-name-tagline-navigation-link-columns-contact-details-phone-and-email-social-media-icons-and-copyright-notice-has-sufficient-contrast-and-is-clearly-readable",
+      "title": "Update the Footer component (frontend/src/components/Footer.tsx) to replace the dark green background with a lighter, neutral tone that fits the green-forward, clean neutral palette used across the rest of the site (e.g., light gray, off-white, or a very light green tint). Ensure all footer content — brand name, tagline, navigation link columns, contact details (phone and email), social media icons, and copyright notice — has sufficient contrast and is clearly readable.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-parallax-scrolling-effect-to-the-hero-section-herosection-tsx-the-background-image-should-move-at-a-slower-rate-than-the-foreground-content-as-the-user-scrolls-down-creating-a-depth-illusion-implement-this-using-a-scroll-event-listener-or-css-transform-tied-to-scroll-position",
+      "title": "Add a parallax scrolling effect to the Hero section (HeroSection.tsx): the background image should move at a slower rate than the foreground content as the user scrolls down, creating a depth illusion. Implement this using a scroll event listener or CSS transform tied to scroll position.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-scroll-linked-reveal-animations-across-all-page-sections-servicessection-aboutsection-testimonialssection-processsection-contactsection-footer-elements-including-section-headings-body-text-service-cards-testimonial-cards-stat-counters-and-process-timeline-steps-should-animate-in-fade-up-slight-upward-translate-as-they-enter-the-viewport-while-scrolling-enhance-or-replace-the-existing-animationwrapper-tsx-with-an-intersectionobserver-based-approach-that-supports-staggered-children-animations",
+      "title": "Implement scroll-linked reveal animations across all page sections (ServicesSection, AboutSection, TestimonialsSection, ProcessSection, ContactSection, Footer). Elements — including section headings, body text, service cards, testimonial cards, stat counters, and process timeline steps — should animate in (fade up + slight upward translate) as they enter the viewport while scrolling. Enhance or replace the existing AnimationWrapper.tsx with an IntersectionObserver-based approach that supports staggered children animations.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-scroll-linked-depth-and-layering-parallax-effects-to-the-about-section-aboutsection-tsx-and-services-section-servicessection-tsx-the-illustration-image-in-the-about-section-should-shift-vertically-at-a-different-rate-than-the-text-column-as-the-user-scrolls-through-the-section-in-the-services-section-individual-cards-should-subtly-shift-or-scale-slightly-based-on-scroll-position-to-create-a-sense-of-3d-depth",
+      "title": "Add scroll-linked depth and layering parallax effects to the About section (AboutSection.tsx) and Services section (ServicesSection.tsx). The illustration/image in the About section should shift vertically at a different rate than the text column as the user scrolls through the section. In the Services section, individual cards should subtly shift or scale slightly based on scroll position to create a sense of 3D depth.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-scroll-progress-indicator-to-the-page-a-thin-horizontal-bar-fixed-at-the-top-of-the-viewport-below-the-header-that-fills-from-left-to-right-as-the-user-scrolls-from-the-top-to-the-bottom-of-the-page-style-it-using-the-site-s-primary-green-accent-color",
+      "title": "Add a scroll progress indicator to the page — a thin horizontal bar fixed at the top of the viewport (below the header) that fills from left to right as the user scrolls from the top to the bottom of the page. Style it using the site's primary green accent color.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-new-frontend-component-videoportfoliosection-tsx-for-the-growtex-journey-video-section-the-section-must-open-with-a-full-width-hero-reel-slot-as-the-dominant-first-element-a-wide-cinematic-frame-16-9-aspect-ratio-dark-overlay-film-grain-style-texture-with-a-bold-overlaid-headline-the-growtex-journey-a-short-subheadline-how-indian-entrepreneurs-go-from-idea-to-digital-dominance-a-large-branded-play-button-centered-on-the-frame-and-a-youtube-embed-ready-thumbnail-background-below-the-hero-reel-render-4-chapter-cards-in-a-horizontal-scrollable-row-on-desktop-and-vertical-stack-on-mobile-each-with-a-chapter-number-label-e-g-chapter-01-a-chapter-title-the-beginning-going-digital-growing-the-brand-scaling-up-a-short-story-paragraph-a-video-thumbnail-frame-with-a-play-button-overlay-and-a-cinematic-dark-card-treatment-with-subtle-green-accent-borders-and-agency-style-typography-below-the-chapter-cards-display-3-supporting-stats-3x-revenue-growth-10k-online-customers-5-cities-reached-in-a-row-with-large-bold-numerals-and-descriptive-labels-apply-scroll-triggered-fade-up-animationwrapper-animations-to-the-hero-reel-each-chapter-card-staggered-and-the-stats-row-place-this-section-in-app-tsx-between-the-about-section-and-the-testimonials-section",
+      "title": "Create a new frontend component `VideoPortfolioSection.tsx` for 'The GrowteX Journey' video section. The section must open with a full-width hero reel slot as the dominant first element — a wide cinematic frame (16:9 aspect ratio, dark overlay, film-grain-style texture) with a bold overlaid headline ('The GrowteX Journey'), a short subheadline ('How Indian entrepreneurs go from idea to digital dominance'), a large branded play button centered on the frame, and a YouTube-embed-ready thumbnail background. Below the hero reel, render 4 chapter cards in a horizontal scrollable row on desktop and vertical stack on mobile, each with: a chapter number label (e.g., 'Chapter 01'), a chapter title ('The Beginning', 'Going Digital', 'Growing the Brand', 'Scaling Up'), a short story paragraph, a video thumbnail frame with a play button overlay, and a cinematic dark card treatment with subtle green accent borders and agency-style typography. Below the chapter cards, display 3 supporting stats ('3x Revenue Growth', '10K+ Online Customers', '5 Cities Reached') in a row with large bold numerals and descriptive labels. Apply scroll-triggered fade-up AnimationWrapper animations to the hero reel, each chapter card (staggered), and the stats row. Place this section in App.tsx between the About section and the Testimonials section.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-a-cinematic-video-thumbnail-image-for-the-hero-reel-of-the-growtex-journey-section-a-wide-dark-frame-evoking-a-professional-indian-entrepreneurship-documentary-with-subtle-city-office-background-dramatic-lighting-green-accent-glow-and-a-large-centered-circular-play-button-graphic-save-as-a-static-asset-at-frontend-public-assets-generated-growtex-journey-hero-reel-dim-1280x720-jpg-and-reference-it-as-the-hero-reel-background-in-videoportfoliosection-tsx",
+      "title": "Generate a cinematic video thumbnail image for the hero reel of 'The GrowteX Journey' section — a wide dark frame evoking a professional Indian entrepreneurship documentary, with subtle city/office background, dramatic lighting, green accent glow, and a large centered circular play button graphic. Save as a static asset at `frontend/public/assets/generated/growtex-journey-hero-reel.dim_1280x720.jpg` and reference it as the hero reel background in VideoPortfolioSection.tsx.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-four-chapter-thumbnail-images-for-the-growtex-journey-video-section-one-per-chapter-each-depicting-a-different-stage-of-an-indian-entrepreneur-s-journey-chapter-1-a-person-with-a-small-shop-humble-beginnings-chapter-2-someone-setting-up-an-online-store-on-a-laptop-chapter-3-a-brand-being-built-with-social-media-screens-visible-chapter-4-a-thriving-business-with-digital-dashboards-and-growth-charts-each-image-should-have-a-cinematic-dark-overlay-and-warm-indian-context-visual-style-save-as-static-assets-at-frontend-public-assets-generated-with-filenames-growtex-chapter1-dim-640x360-jpg-growtex-chapter2-dim-640x360-jpg-growtex-chapter3-dim-640x360-jpg-growtex-chapter4-dim-640x360-jpg-reference-these-in-videoportfoliosection-tsx-as-the-thumbnail-backgrounds-for-each-chapter-card",
+      "title": "Generate four chapter thumbnail images for 'The GrowteX Journey' video section, one per chapter, each depicting a different stage of an Indian entrepreneur's journey: Chapter 1 — a person with a small shop/humble beginnings; Chapter 2 — someone setting up an online store on a laptop; Chapter 3 — a brand being built with social media screens visible; Chapter 4 — a thriving business with digital dashboards and growth charts. Each image should have a cinematic dark overlay and warm Indian-context visual style. Save as static assets at `frontend/public/assets/generated/` with filenames `growtex-chapter1.dim_640x360.jpg`, `growtex-chapter2.dim_640x360.jpg`, `growtex-chapter3.dim_640x360.jpg`, `growtex-chapter4.dim_640x360.jpg`. Reference these in VideoPortfolioSection.tsx as the thumbnail backgrounds for each chapter card.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-restyle-the-entire-growtex-ventures-site-to-match-the-taggl-labs-tagglabs-in-visual-identity-replace-the-current-green-forward-light-palette-with-a-dark-black-primary-background-near-black-0a0a0a-or-111111-use-bold-oversized-agency-style-typography-large-uppercase-section-labels-heavy-display-headings-tight-letter-spacing-retain-growtex-green-as-the-primary-accent-color-for-highlights-ctas-borders-and-hover-states-and-apply-a-premium-creative-agency-feel-with-generous-whitespace-sharp-card-edges-or-minimal-borders-and-high-contrast-text-on-dark-backgrounds-update-css-custom-properties-in-frontend-src-index-css-and-tailwind-tokens-in-frontend-tailwind-config-js-to-reflect-this-dark-theme-consistently-across-all-components",
+      "title": "Restyle the entire GrowteX Ventures site to match the Taggl Labs (tagglabs.in) visual identity: replace the current green-forward light palette with a dark/black primary background (near-black #0a0a0a or #111111), use bold oversized agency-style typography (large uppercase section labels, heavy display headings, tight letter-spacing), retain GrowteX green as the primary accent color for highlights, CTAs, borders, and hover states, and apply a premium creative-agency feel with generous whitespace, sharp card edges or minimal borders, and high-contrast text on dark backgrounds. Update CSS custom properties in frontend/src/index.css and Tailwind tokens in frontend/tailwind.config.js to reflect this dark theme consistently across all components.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-taggl-labs-dark-agency-aesthetic-specifically-to-the-header-component-header-tsx-use-a-dark-black-background-with-backdrop-blur-on-scroll-ensure-the-growtex-wordmark-logo-is-clearly-visible-on-dark-style-nav-links-with-light-white-text-and-green-hover-accents-and-update-the-book-a-free-call-cta-button-to-use-the-green-accent-with-bold-typography-matching-the-new-theme",
+      "title": "Apply the Taggl Labs dark agency aesthetic specifically to the Header component (Header.tsx): use a dark/black background (with backdrop blur on scroll), ensure the GrowteX wordmark logo is clearly visible on dark, style nav links with light/white text and green hover accents, and update the 'Book a Free Call' CTA button to use the green accent with bold typography matching the new theme.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-taggl-labs-dark-agency-aesthetic-to-the-hero-section-herosection-tsx-update-the-section-to-a-very-dark-or-black-background-ensure-the-headline-subheadline-and-tagline-from-vision-to-victory-use-large-bold-white-light-typography-update-cta-buttons-to-the-green-accent-style-and-maintain-the-existing-parallax-background-effect-adapted-to-the-dark-theme",
+      "title": "Apply the Taggl Labs dark agency aesthetic to the Hero section (HeroSection.tsx): update the section to a very dark or black background, ensure the headline, subheadline, and tagline 'From Vision to Victory' use large bold white/light typography, update CTA buttons to the green accent style, and maintain the existing parallax background effect adapted to the dark theme.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-taggl-labs-dark-agency-aesthetic-to-the-services-section-servicessection-tsx-use-dark-card-backgrounds-slightly-lighter-than-page-background-e-g-1a1a1a-or-161616-with-subtle-green-accent-borders-or-top-border-highlights-on-hover-white-card-titles-gray-descriptions-and-ensure-icons-are-styled-with-the-green-accent-color-the-grid-layout-scroll-depth-animations-and-existing-8-services-must-be-preserved",
+      "title": "Apply the Taggl Labs dark agency aesthetic to the Services section (ServicesSection.tsx): use dark card backgrounds (slightly lighter than page background, e.g., #1a1a1a or #161616) with subtle green accent borders or top-border highlights on hover, white card titles, gray descriptions, and ensure icons are styled with the green accent color. The grid layout, scroll-depth animations, and existing 8 services must be preserved.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-taggl-labs-dark-agency-aesthetic-to-the-about-section-aboutsection-tsx-dark-section-background-bold-white-headings-green-accent-for-stat-numbers-and-highlights-light-gray-body-text-and-ensure-the-parallax-illustration-and-stat-counters-are-styled-to-suit-the-dark-theme",
+      "title": "Apply the Taggl Labs dark agency aesthetic to the About section (AboutSection.tsx): dark section background, bold white headings, green accent for stat numbers and highlights, light-gray body text, and ensure the parallax illustration and stat counters are styled to suit the dark theme.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-taggl-labs-dark-agency-aesthetic-to-the-process-section-processsection-tsx-dark-section-background-bold-white-step-titles-green-accent-for-step-numbers-badges-and-connector-lines-and-ensure-the-numbered-4-step-layout-and-existing-animations-are-preserved",
+      "title": "Apply the Taggl Labs dark agency aesthetic to the Process section (ProcessSection.tsx): dark section background, bold white step titles, green accent for step numbers/badges and connector lines, and ensure the numbered 4-step layout and existing animations are preserved.",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-taggl-labs-dark-agency-aesthetic-to-the-testimonials-section-testimonialssection-tsx-dark-section-background-dark-testimonial-cards-with-subtle-borders-or-green-quote-icon-accents-white-quote-text-and-green-or-light-accent-author-name-styling",
+      "title": "Apply the Taggl Labs dark agency aesthetic to the Testimonials section (TestimonialsSection.tsx): dark section background, dark testimonial cards with subtle borders or green quote icon accents, white quote text, and green or light-accent author name styling.",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-taggl-labs-dark-agency-aesthetic-to-the-contact-section-contactsection-tsx-dark-section-background-bold-white-headline-ready-to-grow-dark-form-inputs-with-subtle-borders-and-green-focus-rings-green-submit-button-and-ensure-the-existing-contact-details-phone-7999866007-email-info-growtex-com-with-clickable-tel-mailto-links-are-preserved-and-styled-for-the-dark-theme",
+      "title": "Apply the Taggl Labs dark agency aesthetic to the Contact section (ContactSection.tsx): dark section background, bold white headline ('Ready to Grow?'), dark form inputs with subtle borders and green focus rings, green submit button, and ensure the existing contact details (phone: 7999866007, email: info@growteX.com) with clickable tel/mailto links are preserved and styled for the dark theme.",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-taggl-labs-dark-agency-aesthetic-to-the-footer-component-footer-tsx-replace-any-existing-background-with-a-very-dark-or-near-black-tone-use-white-light-text-for-the-brand-name-and-tagline-light-gray-for-navigation-link-columns-green-accent-for-hover-states-and-social-media-icons-and-ensure-all-footer-content-brand-name-tagline-from-vision-to-victory-navigation-columns-contact-details-social-icons-copyright-notice-is-clearly-readable-with-sufficient-contrast",
+      "title": "Apply the Taggl Labs dark agency aesthetic to the Footer component (Footer.tsx): replace any existing background with a very dark or near-black tone, use white/light text for the brand name and tagline, light-gray for navigation link columns, green accent for hover states and social media icons, and ensure all footer content (brand name, tagline 'From Vision to Victory', navigation columns, contact details, social icons, copyright notice) is clearly readable with sufficient contrast.",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-videoportfoliosection-entirely-from-the-application-delete-or-empty-the-videoportfoliosection-tsx-component-and-remove-its-import-and-usage-from-app-tsx-remove-all-chapter-cards-the-hero-reel-slot-and-the-3-supporting-stats-3x-revenue-growth-10k-online-customers-5-cities-reached-associated-with-it-the-section-order-in-app-tsx-should-flow-directly-from-aboutsection-to-testimonialssection",
+      "title": "Remove the VideoPortfolioSection entirely from the application: delete or empty the VideoPortfolioSection.tsx component and remove its import and usage from App.tsx. Remove all chapter cards, the hero reel slot, and the 3 supporting stats ('3x Revenue Growth', '10K+ Online Customers', '5 Cities Reached') associated with it. The section order in App.tsx should flow directly from AboutSection to TestimonialsSection.",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-header-component-header-tsx-fully-responsive-implement-a-collapsible-hamburger-mobile-menu-that-opens-closes-a-full-width-dropdown-nav-on-small-screens-ensure-the-growtex-wordmark-logo-scales-appropriately-on-mobile-and-maintain-the-dark-agency-aesthetic-with-backdrop-blur-nav-links-and-the-book-a-free-call-cta-button-must-be-accessible-via-the-mobile-menu-touch-targets-must-be-at-least-44-44px",
+      "title": "Make the Header component (Header.tsx) fully responsive: implement a collapsible hamburger mobile menu that opens/closes a full-width dropdown nav on small screens, ensure the GrowteX wordmark logo scales appropriately on mobile, and maintain the dark agency aesthetic with backdrop blur. Nav links and the 'Book a Free Call' CTA button must be accessible via the mobile menu. Touch targets must be at least 44×44px.",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-hero-section-herosection-tsx-fully-responsive-ensure-the-headline-subheadline-and-tagline-from-vision-to-victory-scale-down-gracefully-on-mobile-smaller-font-sizes-tighter-line-height-stack-the-two-cta-buttons-vertically-on-small-screens-and-disable-or-significantly-reduce-the-parallax-background-effect-on-mobile-to-prevent-performance-issues-and-layout-jank",
+      "title": "Make the Hero section (HeroSection.tsx) fully responsive: ensure the headline, subheadline, and tagline 'From Vision to Victory' scale down gracefully on mobile (smaller font sizes, tighter line-height), stack the two CTA buttons vertically on small screens, and disable or significantly reduce the parallax background effect on mobile to prevent performance issues and layout jank.",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-services-section-servicessection-tsx-fully-responsive-the-service-cards-grid-must-display-1-column-on-mobile-640px-2-columns-on-tablet-640px-1024px-and-3-columns-on-desktop-1024px-card-content-icon-title-description-must-be-readable-at-all-breakpoints-scroll-depth-scale-translate-animations-must-degrade-gracefully-on-mobile-reduced-or-disabled",
+      "title": "Make the Services section (ServicesSection.tsx) fully responsive: the service cards grid must display 1 column on mobile (<640px), 2 columns on tablet (640px–1024px), and 3 columns on desktop (>1024px). Card content (icon, title, description) must be readable at all breakpoints. Scroll-depth scale/translate animations must degrade gracefully on mobile (reduced or disabled).",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-about-section-aboutsection-tsx-fully-responsive-on-mobile-the-split-layout-text-illustration-must-stack-vertically-with-the-illustration-below-the-text-stat-counters-must-be-arranged-in-a-single-column-or-2-column-grid-and-the-parallax-illustration-scroll-effect-must-be-disabled-on-mobile-ensure-headings-and-body-text-scale-correctly",
+      "title": "Make the About section (AboutSection.tsx) fully responsive: on mobile, the split layout (text + illustration) must stack vertically with the illustration below the text, stat counters must be arranged in a single column or 2-column grid, and the parallax illustration scroll effect must be disabled on mobile. Ensure headings and body text scale correctly.",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-process-section-processsection-tsx-fully-responsive-on-desktop-display-the-4-step-timeline-horizontally-with-connector-lines-between-steps-on-mobile-and-tablet-stack-steps-vertically-step-numbers-titles-and-descriptions-must-be-readable-at-all-breakpoints-staggered-animations-must-work-correctly-on-both-desktop-and-mobile",
+      "title": "Make the Process section (ProcessSection.tsx) fully responsive: on desktop, display the 4-step timeline horizontally with connector lines between steps; on mobile and tablet, stack steps vertically. Step numbers, titles, and descriptions must be readable at all breakpoints. Staggered animations must work correctly on both desktop and mobile.",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-testimonials-section-testimonialssection-tsx-fully-responsive-display-testimonial-cards-in-a-1-column-layout-on-mobile-2-columns-on-tablet-and-3-columns-on-desktop-cards-must-not-overflow-horizontally-quote-text-author-name-and-company-info-must-all-be-readable-on-small-screens",
+      "title": "Make the Testimonials section (TestimonialsSection.tsx) fully responsive: display testimonial cards in a 1-column layout on mobile, 2 columns on tablet, and 3 columns on desktop. Cards must not overflow horizontally. Quote text, author name, and company info must all be readable on small screens.",
+      "reqIds": [
+        "REQ-39"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-contact-section-contactsection-tsx-fully-responsive-on-mobile-stack-the-info-panel-with-phone-email-links-above-the-contact-form-in-a-single-column-layout-on-desktop-display-them-side-by-side-form-fields-name-email-company-message-must-be-full-width-and-touch-friendly-on-mobile-the-submit-button-must-have-a-minimum-tap-target-size-of-44px-height",
+      "title": "Make the Contact section (ContactSection.tsx) fully responsive: on mobile, stack the info panel (with phone/email links) above the contact form in a single-column layout; on desktop, display them side by side. Form fields (Name, Email, Company, Message) must be full-width and touch-friendly on mobile. The submit button must have a minimum tap target size of 44px height.",
+      "reqIds": [
+        "REQ-40"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-footer-footer-tsx-fully-responsive-on-mobile-stack-the-brand-info-navigation-columns-services-company-contact-and-contact-details-vertically-in-a-single-column-on-desktop-display-them-in-a-multi-column-horizontal-layout-social-media-icons-must-have-adequate-tap-target-sizes-at-least-44-44px-on-mobile-all-text-must-remain-readable-with-sufficient-contrast-on-all-breakpoints",
+      "title": "Make the Footer (Footer.tsx) fully responsive: on mobile, stack the brand info, navigation columns (Services, Company, Contact), and contact details vertically in a single column; on desktop, display them in a multi-column horizontal layout. Social media icons must have adequate tap target sizes (at least 44×44px) on mobile. All text must remain readable with sufficient contrast on all breakpoints.",
+      "reqIds": [
+        "REQ-41"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-global-responsive-typography-and-spacing-adjustments-across-all-sections-use-tailwind-responsive-prefixes-sm-md-lg-to-scale-section-padding-heading-sizes-body-text-sizes-and-button-sizes-appropriately-across-mobile-tablet-and-desktop-ensure-no-horizontal-overflow-occurs-on-any-screen-size-overflow-x-hidden-on-the-root-layout-if-needed-verify-the-scrollprogressbar-remains-fixed-and-functional-on-mobile",
+      "title": "Apply global responsive typography and spacing adjustments across all sections: use Tailwind responsive prefixes (sm:, md:, lg:) to scale section padding, heading sizes, body text sizes, and button sizes appropriately across mobile, tablet, and desktop. Ensure no horizontal overflow occurs on any screen size (overflow-x: hidden on the root layout if needed). Verify the ScrollProgressBar remains fixed and functional on mobile.",
+      "reqIds": [
+        "REQ-42"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -203,6 +422,24 @@
     {
       "id": "AR-12",
       "summary": "Update services to: DPIIT Registration, MSME Udyam, Trademark, Digital Marketing (Social Media), Website Development (WordPress/Shopify/Custom), SEO (On/Off-Page), Performance Advertising (Meta/Google/LinkedIn/YouTube Ads)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Add parallax scrolling and scroll-linked animations: parallax hero background, scroll-triggered reveal animations for sections/cards/stats/timeline steps, and depth/layering effects on key sections",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Restyle entire site to Taggl Labs visual identity: dark/black backgrounds, bold agency typography, bright GrowteX green accent, creative/agency feel across all sections",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Make site fully responsive for mobile and web: collapsible mobile nav, stacked layouts on small screens, touch-friendly tap targets, scaled typography, parallax/animation effects degrade cleanly on mobile",
       "reqIds": [],
       "status": "pending"
     }

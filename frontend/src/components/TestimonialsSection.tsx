@@ -1,134 +1,89 @@
-import { Quote } from 'lucide-react';
 import AnimationWrapper from './AnimationWrapper';
 
 const testimonials = [
   {
-    quote:
-      "GrowteX Ventures handled our DPIIT registration seamlessly. Within weeks we had our Startup India certificate and could access government benefits. Their team is incredibly knowledgeable.",
-    name: 'Rahul Sharma',
-    title: 'Founder',
-    company: 'TechNova Solutions',
-    initials: 'RS',
-    color: 'bg-green-100 text-green-700',
+    quote: "GrowteX transformed our digital presence completely. Our revenue grew 3x within 8 months of working with them.",
+    author: "Priya Sharma",
+    company: "TechStart India",
+    role: "CEO & Founder",
   },
   {
-    quote:
-      "The social media management team at GrowteX transformed our Instagram and LinkedIn presence. Our follower count tripled and leads from social media increased by 200% in 4 months.",
-    name: 'Priya Mehta',
-    title: 'CEO',
-    company: 'StyleCraft India',
-    initials: 'PM',
-    color: 'bg-green-500 text-white',
+    quote: "The team's data-driven approach and transparent communication made all the difference. Best investment we've made.",
+    author: "Rahul Mehta",
+    company: "RetailPro",
+    role: "Marketing Director",
   },
   {
-    quote:
-      "Our Shopify store built by GrowteX is stunning and converts brilliantly. Their SEO work pushed us to page 1 for our key terms within 3 months. Exceptional results!",
-    name: 'Amit Patel',
-    title: 'Director',
-    company: 'HomeDecor Hub',
-    initials: 'AP',
-    color: 'bg-green-100 text-green-700',
+    quote: "From SEO to paid ads, GrowteX handles everything with expertise. Our organic traffic increased by 400% in 6 months.",
+    author: "Anita Patel",
+    company: "HealthFirst",
+    role: "Co-Founder",
   },
   {
-    quote:
-      "GrowteX's Google Ads and Meta Ads campaigns delivered a consistent 6x ROAS for our e-commerce brand. They truly understand performance marketing and ROI optimization.",
-    name: 'Sneha Joshi',
-    title: 'Head of Marketing',
-    company: 'FreshCart Online',
-    initials: 'SJ',
-    color: 'bg-green-500 text-white',
+    quote: "Professional, results-oriented, and genuinely invested in our success. GrowteX is a true growth partner.",
+    author: "Vikram Singh",
+    company: "EduTech Solutions",
+    role: "Managing Director",
   },
   {
-    quote:
-      "Getting our trademark registered was stress-free with GrowteX. They guided us through every step of the application process and kept us updated throughout. Highly recommended!",
-    name: 'Vikram Singh',
-    title: 'Managing Partner',
-    company: 'LegalEdge Consultants',
-    initials: 'VS',
-    color: 'bg-green-100 text-green-700',
+    quote: "Their social media strategy helped us build a community of 50K+ engaged followers in just 4 months.",
+    author: "Neha Gupta",
+    company: "FashionForward",
+    role: "Brand Manager",
   },
   {
-    quote:
-      "Our MSME Udyam registration was completed in record time by GrowteX. Now we access priority lending and government tenders. Their expertise in compliance is unmatched.",
-    name: 'Deepa Nair',
-    title: 'Proprietor',
-    company: 'Nair Enterprises',
-    initials: 'DN',
-    color: 'bg-green-500 text-white',
+    quote: "The ROI on our Google Ads campaigns improved by 280% after GrowteX took over. Exceptional performance.",
+    author: "Arjun Kapoor",
+    company: "FinanceFirst",
+    role: "Growth Lead",
   },
 ];
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-24 lg:py-32 bg-green-50 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px section-divider" />
-      <div className="absolute top-1/3 right-0 w-96 h-96 rounded-full bg-green-200/30 blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <AnimationWrapper className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-300 bg-green-100 text-green-700 text-sm font-medium mb-5">
-            Client Stories
+    <section id="testimonials" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimationWrapper className="text-center mb-10 sm:mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 mb-4">
+            <span className="text-primary text-xs font-semibold tracking-wider uppercase">Client Stories</span>
           </div>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-5">
-            Trusted by{' '}
-            <span className="text-gradient-green">Growth Leaders</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-3 sm:mb-4">
+            What Our{' '}
+            <span className="text-primary">Clients Say</span>
           </h2>
-          <p className="text-lg text-neutral-500 max-w-2xl mx-auto">
-            Don't take our word for it. Here's what our clients say about working with GrowteX Ventures.
+          <p className="text-sm sm:text-base md:text-lg text-foreground/60 max-w-2xl mx-auto">
+            Don't just take our word for it — hear from the businesses we've helped grow.
           </p>
         </AnimationWrapper>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {testimonials.map((testimonial, index) => (
-            <AnimationWrapper
-              key={testimonial.name}
-              delay={index * 80}
-              animation="fade-up"
-            >
-              <div className="group bg-white border border-green-100 rounded-2xl p-7 hover:border-green-300 card-glow transition-all duration-300 h-full flex flex-col shadow-card">
-                {/* Quote icon */}
-                <Quote className="w-8 h-8 text-green-300 mb-4 flex-shrink-0" />
-
-                {/* Quote text */}
-                <p className="text-neutral-500 text-sm leading-relaxed flex-1 mb-6">
+            <AnimationWrapper key={testimonial.author} delay={index * 100}>
+              <div className="h-full bg-card border border-border/50 rounded-2xl p-5 sm:p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col">
+                {/* Stars */}
+                <div className="flex gap-1 mb-3 sm:mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-primary text-sm">★</span>
+                  ))}
+                </div>
+                {/* Quote */}
+                <p className="text-sm sm:text-base text-foreground/70 leading-relaxed mb-4 sm:mb-6 flex-1">
                   "{testimonial.quote}"
                 </p>
-
                 {/* Author */}
-                <div className="flex items-center gap-3 pt-4 border-t border-green-100">
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${testimonial.color}`}
-                  >
-                    {testimonial.initials}
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary font-bold text-sm">{testimonial.author[0]}</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-foreground text-sm">{testimonial.name}</div>
-                    <div className="text-xs text-neutral-400">
-                      {testimonial.title}, {testimonial.company}
-                    </div>
+                    <div className="text-sm font-semibold text-foreground">{testimonial.author}</div>
+                    <div className="text-xs text-foreground/50">{testimonial.role}, {testimonial.company}</div>
                   </div>
                 </div>
               </div>
             </AnimationWrapper>
           ))}
         </div>
-
-        {/* Trust indicators */}
-        <AnimationWrapper className="mt-16 text-center">
-          <p className="text-neutral-400 text-sm mb-6">Trusted by businesses across India</p>
-          <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
-            {['TechNova', 'StyleCraft', 'HomeDecor Hub', 'FreshCart', 'LegalEdge', 'Nair Enterprises'].map(
-              (company) => (
-                <span key={company} className="font-display font-bold text-lg text-neutral-600 tracking-wide">
-                  {company}
-                </span>
-              )
-            )}
-          </div>
-        </AnimationWrapper>
       </div>
     </section>
   );

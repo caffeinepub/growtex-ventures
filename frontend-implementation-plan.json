@@ -1,159 +1,176 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Rebrand GrowteX Ventures: Logo, Color Palette, Tagline, Services, and Contact Details",
+  "title": "Make GrowteX Ventures site fully responsive for mobile and web",
   "requirements": [
     {
-      "id": "REQ-11",
-      "summary": "Design and integrate custom GrowteX Ventures wordmark logo with green accent and growth motif across Header, Hero, and Footer components",
+      "id": "REQ-34",
+      "summary": "Make Header component fully responsive with collapsible hamburger mobile menu, scaled logo, and 44×44px touch targets",
       "acceptanceCriteria": [
-        "A wordmark logo image is generated and saved to frontend/public/assets/generated/",
-        "The logo appears in the Header, Hero section, and Footer",
-        "The logo uses a green-forward color consistent with the site's updated palette"
+        "On mobile (<768px), the desktop nav links are hidden and a hamburger icon is shown",
+        "Tapping the hamburger icon opens a full-width dropdown menu with all nav links and CTA button",
+        "Tapping a nav link closes the mobile menu and smooth-scrolls to the target section",
+        "On desktop (≥768px), the full horizontal nav is shown and the hamburger is hidden",
+        "All tap targets are at least 44×44px on mobile",
+        "The dark agency aesthetic is preserved on all breakpoints"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/Header.tsx",
           "operation": "modify",
-          "description": "Replace the current logo/branding in the header with the new GrowteX Ventures wordmark logo using the generated image at frontend/public/assets/generated/growtex-logo.dim_400x100.png. Update the logo image source and ensure it links to the top of the page on click. Verify the component's current logo implementation before modifying."
-        },
-        {
-          "path": "frontend/src/components/HeroSection.tsx",
-          "operation": "modify",
-          "description": "Integrate the GrowteX Ventures wordmark logo into the hero section, displaying it prominently above or alongside the headline. Use the generated logo at frontend/public/assets/generated/growtex-logo.dim_400x100.png. Ensure proper sizing and alignment within the hero layout."
-        },
-        {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Replace the existing footer logo with the new GrowteX Ventures wordmark using the generated image at frontend/public/assets/generated/growtex-logo.dim_400x100.png. Position it at the top of the footer alongside the tagline as currently structured."
+          "description": "Add mobile menu state (isMenuOpen) and hamburger icon button that toggles visibility. Wrap desktop nav links in a hidden md:flex container. Create a full-width mobile dropdown menu (visible when isMenuOpen is true) containing all nav links and the 'Book a Free Call' CTA button stacked vertically. Ensure hamburger and all menu items have min-height/width of 44px for touch targets. Add onClick handlers to nav links that close the mobile menu after smooth-scrolling. Hide hamburger on md: breakpoint and above. Preserve dark backdrop blur aesthetic on mobile menu."
         }
       ]
     },
     {
-      "id": "REQ-12",
-      "summary": "Update site color palette from dark navy/charcoal to green-forward, clean neutral palette matching startupflora.com across all components and global styles",
+      "id": "REQ-35",
+      "summary": "Make Hero section fully responsive with scaled typography, vertically stacked CTAs on mobile, and disabled parallax on small screens",
       "acceptanceCriteria": [
-        "CSS custom properties in index.css are updated to a green-forward, clean neutral palette",
-        "Tailwind config color tokens reflect the new palette",
-        "All sections (Header, Hero, Services, About, Testimonials, Process, Contact, Footer) visually use the updated colors",
-        "No dark navy or charcoal backgrounds remain unless used as an intentional contrast accent"
+        "Headline font size is appropriately smaller on mobile (e.g., text-3xl or text-4xl vs text-6xl+ on desktop)",
+        "CTA buttons stack vertically on screens <640px and display side-by-side on larger screens",
+        "Parallax effect is disabled on mobile (useParallax hook or a media-query guard) to avoid layout issues",
+        "Hero section fills the viewport correctly on all screen sizes without horizontal overflow"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Replace the current OKLCH-based CSS custom properties (background, foreground, primary, accent, etc.) with a green-forward, clean neutral palette inspired by startupflora.com. Use bright greens as primary colors, whites and light grays as backgrounds, and clean accent tones. Remove dark navy/charcoal tokens and update all theme variables to reflect the new palette. Ensure proper contrast ratios for accessibility."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Update the Tailwind theme color tokens to match the new green-forward palette. Replace navy and teal references with bright greens, neutral grays, and white-based tokens. Update primary, secondary, accent, and semantic color definitions to align with the updated CSS variables in index.css. Ensure color consistency across the configuration."
-        },
-        {
-          "path": "frontend/src/components/Header.tsx",
-          "operation": "modify",
-          "description": "Update header background colors, text colors, and hover states to use the new green-forward palette. Replace any dark navy or charcoal styling with clean whites/light grays and green accents. Verify current styling before applying changes."
-        },
-        {
           "path": "frontend/src/components/HeroSection.tsx",
           "operation": "modify",
-          "description": "Update hero section background (replace or overlay the current background image with frontend/public/assets/generated/hero-bg-green.dim_1920x1080.png), text colors, CTA button colors, and stat row colors to reflect the new green-forward palette. Ensure high contrast between text and background for readability."
-        },
+          "description": "Apply responsive Tailwind classes to the headline (e.g., text-3xl sm:text-4xl md:text-5xl lg:text-6xl), subheadline (text-base sm:text-lg md:text-xl), and tagline. Wrap the CTA button container with flex-col sm:flex-row to stack buttons vertically on mobile and side-by-side on larger screens. Conditionally disable the useParallax hook on mobile by checking window.innerWidth or using a media query hook; set translateY to 0 when disabled. Ensure the section has no horizontal overflow by verifying container max-width and padding."
+        }
+      ]
+    },
+    {
+      "id": "REQ-36",
+      "summary": "Make Services section fully responsive with 1/2/3 column grid layout and gracefully degraded scroll animations on mobile",
+      "acceptanceCriteria": [
+        "Services grid shows 1 column on screens <640px",
+        "Services grid shows 2 columns on screens 640px–1023px",
+        "Services grid shows 3 columns on screens ≥1024px",
+        "Card text is fully readable without overflow on all breakpoints",
+        "Scroll-depth parallax animations are reduced or disabled on mobile"
+      ],
+      "file_operations": [
         {
           "path": "frontend/src/components/ServicesSection.tsx",
           "operation": "modify",
-          "description": "Update service card backgrounds, borders, icon colors, text colors, and hover effects to use the new green-forward palette with clean neutral tones. Replace any dark backgrounds with light grays or whites and use green accents for highlights."
-        },
+          "description": "Update the services grid container with responsive Tailwind classes: grid-cols-1 sm:grid-cols-2 lg:grid-cols-3. Ensure all card content (icon, title, description) has adequate padding and no text overflow. Reduce or disable the scroll-depth scale/translate animations on mobile by conditionally applying transform styles only on md: breakpoint and above, or by checking prefers-reduced-motion and viewport width before applying useScrollDepth-driven transforms."
+        }
+      ]
+    },
+    {
+      "id": "REQ-37",
+      "summary": "Make About section fully responsive with vertically stacked layout on mobile, 2-column stat grid, and disabled illustration parallax",
+      "acceptanceCriteria": [
+        "On mobile (<768px), illustration appears below the text content in a single-column stack",
+        "Stat counters are displayed in a 2-column grid on mobile and inline on desktop",
+        "Illustration parallax scroll effect is disabled on mobile",
+        "Section heading and body text scale to readable sizes on all breakpoints"
+      ],
+      "file_operations": [
         {
           "path": "frontend/src/components/AboutSection.tsx",
           "operation": "modify",
-          "description": "Update the About section background, text colors, stat card colors, checklist styling, and replace the illustration with frontend/public/assets/generated/about-illustration-green.dim_800x600.png. Apply the new green-forward palette throughout, ensuring the section feels bright and clean."
-        },
-        {
-          "path": "frontend/src/components/TestimonialsSection.tsx",
-          "operation": "modify",
-          "description": "Update testimonial card backgrounds, text colors, avatar styling, and quote colors to align with the new green-forward palette. Use light backgrounds with green accents for cards and ensure text remains readable."
-        },
+          "description": "Refactor the split layout container to use flex-col md:flex-row so the illustration stacks below text on mobile. Update the stat counters container to use a grid-cols-2 md:grid-cols-4 layout. Conditionally disable the parallax illustration scroll effect on mobile by wrapping the useParallax translateY application in a media query check or setting it to 0 on small screens. Apply responsive font size classes to the section heading (text-2xl sm:text-3xl md:text-4xl) and body text (text-sm sm:text-base)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-38",
+      "summary": "Make Process section fully responsive with vertical stacking on mobile/tablet and horizontal timeline on desktop",
+      "acceptanceCriteria": [
+        "On desktop (≥1024px), steps are displayed in a horizontal row with connector lines",
+        "On mobile and tablet (<1024px), steps stack vertically",
+        "Connector lines between steps are hidden in vertical/mobile layout",
+        "All step content is fully readable on all breakpoints",
+        "Scroll-triggered stagger animations trigger correctly on mobile"
+      ],
+      "file_operations": [
         {
           "path": "frontend/src/components/ProcessSection.tsx",
           "operation": "modify",
-          "description": "Update process step card backgrounds, numbered badges, icon colors, borders, and hover effects to reflect the new green-forward, clean neutral palette. Replace dark elements with light grays/whites and green highlights."
-        },
-        {
-          "path": "frontend/src/components/ContactSection.tsx",
-          "operation": "modify",
-          "description": "Update contact form styling, input field backgrounds/borders, button colors, info panel background, and text colors to use the new green-forward palette. Ensure form elements have clean, accessible styling with green accents for interactive elements."
-        },
-        {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Update footer background color, text colors, link hover states, social icon styling, and divider colors to align with the new green-forward palette. Use a light or neutral footer background with green accents for links and icons."
+          "description": "Update the process steps container to use flex-col lg:flex-row for vertical stacking on mobile/tablet and horizontal layout on desktop. Conditionally render or hide the connector lines using the hidden lg:block utility class so they only appear in the horizontal desktop layout. Ensure step numbers, titles, and descriptions use responsive font sizes (text-base sm:text-lg for titles). Verify that the AnimationWrapper stagger delay works correctly on all breakpoints by testing scroll-triggered animations on mobile viewports."
         }
       ]
     },
     {
-      "id": "REQ-13",
-      "summary": "Update site tagline to 'From Vision to Victory' across Hero, Footer, HTML title, and meta description",
+      "id": "REQ-39",
+      "summary": "Make Testimonials section fully responsive with 1/2/3 column grid layout and no horizontal overflow",
       "acceptanceCriteria": [
-        "Hero section displays 'From Vision to Victory' as the tagline",
-        "Footer displays 'From Vision to Victory' beneath the wordmark",
-        "HTML <title> and meta description in index.html reference GrowteX Ventures and 'From Vision to Victory'",
-        "No old tagline text remains on the page"
+        "Testimonial cards display in 1 column on screens <640px",
+        "Testimonial cards display in 2 columns on screens 640px–1023px",
+        "Testimonial cards display in 3 columns on screens ≥1024px",
+        "No horizontal overflow on any breakpoint",
+        "All card text is legible on mobile"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/HeroSection.tsx",
+          "path": "frontend/src/components/TestimonialsSection.tsx",
           "operation": "modify",
-          "description": "Replace the current hero tagline/subheadline text with 'From Vision to Victory'. Position it prominently below the main headline or integrate it into the hero messaging. Verify the current tagline location before updating."
-        },
-        {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Update the footer tagline text to display 'From Vision to Victory' beneath or alongside the GrowteX Ventures wordmark logo. Replace any existing tagline text with the new one."
-        },
-        {
-          "path": "frontend/index.html",
-          "operation": "modify",
-          "description": "Update the HTML <title> tag to include 'GrowteX Ventures - From Vision to Victory' or similar. Update the meta description to reference GrowteX Ventures and the tagline 'From Vision to Victory', providing a concise description of the company's mission and services."
+          "description": "Update the testimonials grid container with responsive Tailwind classes: grid-cols-1 sm:grid-cols-2 lg:grid-cols-3. Ensure all testimonial cards have appropriate padding and that quote text, author name, and company info use readable font sizes (text-sm sm:text-base for quotes). Verify no horizontal overflow by ensuring the grid container respects max-width constraints and has adequate horizontal padding (px-4 sm:px-6 lg:px-8)."
         }
       ]
     },
     {
-      "id": "REQ-14",
-      "summary": "Replace all service cards with 8 new services (DPIIT Registration, MSME Registration, Trademark, Digital Marketing, Website Development, SEO, Performance Advertising) in responsive 3-column grid",
+      "id": "REQ-40",
+      "summary": "Make Contact section fully responsive with vertically stacked layout on mobile, full-width touch-friendly form fields, and 44px minimum button height",
       "acceptanceCriteria": [
-        "Exactly 8 service cards are displayed in ServicesSection",
-        "Each card has a relevant icon, the correct service title, and a short description",
-        "Grid is 3 columns on desktop, 2 on tablet, 1 on mobile",
-        "Cards use the updated green-forward color palette with hover effects"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/ServicesSection.tsx",
-          "operation": "modify",
-          "description": "Replace all existing service cards with exactly 8 new service cards: (1) Startup India DPIIT Registration & Certification Application Assistance, (2) MSME Udyam Aadhaar Registration & Certification, (3) Trademark Registration & Application Services, (4) Digital Marketing — Social Media Management for Instagram, Facebook, LinkedIn & YouTube, (5) Website Development — WordPress, Shopify & Custom Code, (6) SEO — On-Page & Off-Page Services, (7) Performance & Advertising Services — Meta Ads, Google Ads, LinkedIn Ads & YouTube Ads. Add an 8th service based on the pattern (consider bundling or adding a complementary service). Each card should have a relevant icon (select appropriate icons from Lucide or the existing icon library), a title matching the service name, and a concise 1-2 sentence description. Configure the grid to display 3 columns on desktop, 2 on tablet, and 1 on mobile using responsive Tailwind classes. Apply the new green-forward color palette with hover effects."
-        }
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "summary": "Add phone number 7999866007 and email info@growteX.com as clickable links in Contact section info panel and Footer contact column",
-      "acceptanceCriteria": [
-        "Phone 7999866007 appears in ContactSection info panel as a tel: link",
-        "Email info@growteX.com appears in ContactSection info panel as a mailto: link",
-        "Phone and email appear in the Footer's Contact column",
-        "Both are styled consistently with the surrounding text and the updated palette"
+        "On mobile (<768px), the info panel stacks above the form in a single column",
+        "On desktop (≥768px), the info panel and form display side by side",
+        "Form inputs are full-width on mobile with adequate padding for touch interaction",
+        "Submit button height is at least 44px on mobile",
+        "Phone (tel:) and email (mailto:) links remain clickable and visible on all breakpoints"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/ContactSection.tsx",
           "operation": "modify",
-          "description": "Add phone number 7999866007 as a clickable tel: link and email info@growteX.com as a clickable mailto: link to the contact info panel. Display them alongside any existing location or social links, using appropriate icons (phone and mail icons). Style consistently with the new green-forward palette and ensure proper spacing and alignment."
-        },
+          "description": "Refactor the contact section layout container to use flex-col md:flex-row so the info panel stacks above the form on mobile. Ensure all form inputs (Name, Email, Company, Message) are full-width with adequate padding (py-3 px-4) for touch interaction. Set the submit button to have a minimum height of 44px (h-11 or h-12) and full-width on mobile (w-full md:w-auto). Verify phone and email links in the info panel remain visible and clickable with adequate tap target sizes on all breakpoints."
+        }
+      ]
+    },
+    {
+      "id": "REQ-41",
+      "summary": "Make Footer fully responsive with vertically stacked columns on mobile, multi-column layout on desktop, and 44×44px social icon tap targets",
+      "acceptanceCriteria": [
+        "On mobile (<640px), all footer columns stack vertically",
+        "On desktop (≥768px), footer displays in a multi-column horizontal layout",
+        "Social media icon tap targets are at least 44×44px on mobile",
+        "All footer text (brand name, tagline, links, contact details, copyright) is legible on mobile",
+        "No horizontal scroll or content overflow on mobile"
+      ],
+      "file_operations": [
         {
           "path": "frontend/src/components/Footer.tsx",
           "operation": "modify",
-          "description": "Add phone number 7999866007 (as a tel: link) and email info@growteX.com (as a mailto: link) to the Contact column in the footer. Position them logically within the existing footer structure, using consistent styling with the new palette and ensuring they are easily readable and clickable."
+          "description": "Refactor the footer layout container to use flex-col sm:flex-row or a responsive grid (grid-cols-1 sm:grid-cols-2 md:grid-cols-4) so columns stack vertically on mobile and display horizontally on desktop. Ensure social media icons have minimum width and height of 44px (w-11 h-11) with adequate touch padding. Apply responsive font sizes to all footer text (text-xs sm:text-sm for body text, text-sm sm:text-base for headings). Verify no horizontal overflow by checking container padding and max-width constraints."
+        }
+      ]
+    },
+    {
+      "id": "REQ-42",
+      "summary": "Apply global responsive typography and spacing adjustments, ensure no horizontal overflow, and verify ScrollProgressBar on mobile",
+      "acceptanceCriteria": [
+        "Section vertical padding is smaller on mobile (e.g., py-12 on mobile vs py-24 on desktop)",
+        "No horizontal scroll bar appears on mobile at any viewport width from 320px upward",
+        "The ScrollProgressBar is visible and functions correctly on mobile",
+        "Body text is at least 14px on mobile for readability",
+        "All AnimationWrapper scroll-reveal animations trigger correctly on mobile viewports"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply responsive vertical padding to all section wrappers (py-12 sm:py-16 md:py-20 lg:py-24). Add overflow-x-hidden to the root container (likely a div wrapping all sections or on the body via index.css) to prevent horizontal scroll. Verify the ScrollProgressBar component remains fixed and visible on mobile by checking its z-index and position styles. Ensure all sections respect container max-width and horizontal padding constraints to prevent overflow."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add overflow-x: hidden to the html or body selector to enforce no horizontal scroll globally. Review and adjust base font size to ensure body text is at least 14px (0.875rem) on mobile. Verify that all custom utility classes (gradients, glows) do not cause layout overflow. Ensure prefers-reduced-motion media query is respected for all scroll-triggered animations."
+        },
+        {
+          "path": "frontend/src/components/AnimationWrapper.tsx",
+          "operation": "modify",
+          "description": "Verify that the IntersectionObserver threshold and root margin settings work correctly on mobile viewports (320px and up). Ensure scroll-reveal animations trigger at appropriate scroll positions on small screens. Confirm prefers-reduced-motion handling disables or reduces animations on mobile when the user preference is set."
         }
       ]
     }

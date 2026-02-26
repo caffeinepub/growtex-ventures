@@ -1,133 +1,204 @@
 {
   "kind": "build_request",
-  "title": "Rebrand GrowteX Ventures: Logo, Color Palette, Tagline, Services, and Contact Details",
+  "title": "Make GrowteX Ventures site fully responsive for mobile and web",
   "projectName": "GrowteX Ventures",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-11",
-      "text": "Design and render a custom GrowteX Ventures wordmark logo. The logo should use bold, modern sans-serif typography with a green accent (matching startupflora.com palette) and incorporate a subtle growth-oriented graphic element (e.g., upward arrow or leaf motif). Use it in the Header, Hero, and Footer components, replacing any placeholder logo.",
+      "id": "REQ-34",
+      "text": "Make the Header component (Header.tsx) fully responsive: implement a collapsible hamburger mobile menu that opens/closes a full-width dropdown nav on small screens, ensure the GrowteX wordmark logo scales appropriately on mobile, and maintain the dark agency aesthetic with backdrop blur. Nav links and the 'Book a Free Call' CTA button must be accessible via the mobile menu. Touch targets must be at least 44×44px.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4",
-          "msg-8"
+          "msg-3"
         ],
         "quotes": [
-          "you have full authority to create a wordmark logo",
-          "Wordmark Logo — Custom GrowteX Ventures wordmark designed from scratch"
+          "make it both mobile and web friendly"
         ]
       },
       "acceptanceCriteria": [
-        "A wordmark logo image is generated and saved to frontend/public/assets/generated/",
-        "The logo appears in the Header, Hero section, and Footer",
-        "The logo uses a green-forward color consistent with the site's updated palette"
+        "On mobile (<768px), the desktop nav links are hidden and a hamburger icon is shown",
+        "Tapping the hamburger icon opens a full-width dropdown menu with all nav links and CTA button",
+        "Tapping a nav link closes the mobile menu and smooth-scrolls to the target section",
+        "On desktop (≥768px), the full horizontal nav is shown and the hamburger is hidden",
+        "All tap targets are at least 44×44px on mobile",
+        "The dark agency aesthetic is preserved on all breakpoints"
       ]
     },
     {
-      "id": "REQ-12",
-      "text": "Update the entire site's color palette to match startupflora.com's visual identity: replace the current dark navy/charcoal theme with a green-forward, clean neutral palette (bright greens, whites, light grays, and clean accent tones). Update CSS variables in frontend/src/index.css and frontend/tailwind.config.js to reflect the new palette and apply consistently across all sections.",
+      "id": "REQ-35",
+      "text": "Make the Hero section (HeroSection.tsx) fully responsive: ensure the headline, subheadline, and tagline 'From Vision to Victory' scale down gracefully on mobile (smaller font sizes, tighter line-height), stack the two CTA buttons vertically on small screens, and disable or significantly reduce the parallax background effect on mobile to prevent performance issues and layout jank.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4",
-          "msg-8"
+          "msg-3"
         ],
         "quotes": [
-          "use colors as used in www.startupflora.com website and use its color palette",
-          "Color Palette — Updated to match startupflora.com's green-forward, clean palette"
+          "make it both mobile and web friendly"
         ]
       },
       "acceptanceCriteria": [
-        "CSS custom properties in index.css are updated to a green-forward, clean neutral palette",
-        "Tailwind config color tokens reflect the new palette",
-        "All sections (Header, Hero, Services, About, Testimonials, Process, Contact, Footer) visually use the updated colors",
-        "No dark navy or charcoal backgrounds remain unless used as an intentional contrast accent"
+        "Headline font size is appropriately smaller on mobile (e.g., text-3xl or text-4xl vs text-6xl+ on desktop)",
+        "CTA buttons stack vertically on screens <640px and display side-by-side on larger screens",
+        "Parallax effect is disabled on mobile (useParallax hook or a media-query guard) to avoid layout issues",
+        "Hero section fills the viewport correctly on all screen sizes without horizontal overflow"
       ]
     },
     {
-      "id": "REQ-13",
-      "text": "Update the site tagline to 'From Vision to Victory' everywhere it appears: the Hero section subheadline/tagline area, the Footer tagline, the HTML <title> and meta description in frontend/index.html, and any other location on the page where the old tagline or a generic descriptor is shown.",
+      "id": "REQ-36",
+      "text": "Make the Services section (ServicesSection.tsx) fully responsive: the service cards grid must display 1 column on mobile (<640px), 2 columns on tablet (640px–1024px), and 3 columns on desktop (>1024px). Card content (icon, title, description) must be readable at all breakpoints. Scroll-depth scale/translate animations must degrade gracefully on mobile (reduced or disabled).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4",
-          "msg-8"
+          "msg-3"
         ],
         "quotes": [
-          "tagline is from vision to victory",
-          "Tagline — 'From Vision to Victory' across hero, footer, and meta"
+          "make it both mobile and web friendly"
         ]
       },
       "acceptanceCriteria": [
-        "Hero section displays 'From Vision to Victory' as the tagline",
-        "Footer displays 'From Vision to Victory' beneath the wordmark",
-        "HTML <title> and meta description in index.html reference GrowteX Ventures and 'From Vision to Victory'",
-        "No old tagline text remains on the page"
+        "Services grid shows 1 column on screens <640px",
+        "Services grid shows 2 columns on screens 640px–1023px",
+        "Services grid shows 3 columns on screens ≥1024px",
+        "Card text is fully readable without overflow on all breakpoints",
+        "Scroll-depth parallax animations are reduced or disabled on mobile"
       ]
     },
     {
-      "id": "REQ-14",
-      "text": "Replace all service cards in the Services section (ServicesSection.tsx) with the following 8 updated services, each with a relevant icon and a short description: (1) Startup India DPIIT Registration & Certification Application Assistance, (2) MSME Udyam Aadhaar Registration & Certification, (3) Trademark Registration & Application Services, (4) Digital Marketing — Social Media Management for Instagram, Facebook, LinkedIn & YouTube, (5) Website Development — WordPress, Shopify & Custom Code, (6) SEO — On-Page & Off-Page Services, (7) Performance & Advertising Services — Meta Ads, Google Ads, LinkedIn Ads & YouTube Ads. Lay out as a responsive grid (3 columns on desktop, 2 on tablet, 1 on mobile).",
+      "id": "REQ-37",
+      "text": "Make the About section (AboutSection.tsx) fully responsive: on mobile, the split layout (text + illustration) must stack vertically with the illustration below the text, stat counters must be arranged in a single column or 2-column grid, and the parallax illustration scroll effect must be disabled on mobile. Ensure headings and body text scale correctly.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4",
-          "msg-8"
+          "msg-3"
         ],
         "quotes": [
-          "highlight the below mentioned service in the service page",
-          "Startup india DPIIT registration and certification application assistance, MSME Udhyam aadhar registration and certification, trademark registration and application services, Digital marketing servives like SOcial media management for instagtam, facebook, linkedin, youtube. Website development services, wordpress, shopify and custom code website, SEO- on page and offpages services, performance and advertising services around meta, google ads,linkedin ads, youtube ads"
+          "make it both mobile and web friendly"
         ]
       },
       "acceptanceCriteria": [
-        "Exactly 8 service cards are displayed in ServicesSection",
-        "Each card has a relevant icon, the correct service title, and a short description",
-        "Grid is 3 columns on desktop, 2 on tablet, 1 on mobile",
-        "Cards use the updated green-forward color palette with hover effects"
+        "On mobile (<768px), illustration appears below the text content in a single-column stack",
+        "Stat counters are displayed in a 2-column grid on mobile and inline on desktop",
+        "Illustration parallax scroll effect is disabled on mobile",
+        "Section heading and body text scale to readable sizes on all breakpoints"
       ]
     },
     {
-      "id": "REQ-15",
-      "text": "Add contact details — phone number 7999866007 and email info@growteX.com — to the Contact section (ContactSection.tsx) and the Footer (Footer.tsx). In the Contact section, display these in the info panel alongside any existing location or social links. In the Footer, show them in the Contact column. Ensure the email is a clickable mailto: link and the phone is a clickable tel: link.",
+      "id": "REQ-38",
+      "text": "Make the Process section (ProcessSection.tsx) fully responsive: on desktop, display the 4-step timeline horizontally with connector lines between steps; on mobile and tablet, stack steps vertically. Step numbers, titles, and descriptions must be readable at all breakpoints. Staggered animations must work correctly on both desktop and mobile.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6",
-          "msg-8",
-          "msg-10"
+          "msg-3"
         ],
         "quotes": [
-          "phone number : 7999866007",
-          "email: info@growteX.com",
-          "The phone number and email will be displayed in the Contact section, footer, and anywhere contact info appears"
+          "make it both mobile and web friendly"
         ]
       },
       "acceptanceCriteria": [
-        "Phone 7999866007 appears in ContactSection info panel as a tel: link",
-        "Email info@growteX.com appears in ContactSection info panel as a mailto: link",
-        "Phone and email appear in the Footer's Contact column",
-        "Both are styled consistently with the surrounding text and the updated palette"
+        "On desktop (≥1024px), steps are displayed in a horizontal row with connector lines",
+        "On mobile and tablet (<1024px), steps stack vertically",
+        "Connector lines between steps are hidden in vertical/mobile layout",
+        "All step content is fully readable on all breakpoints",
+        "Scroll-triggered stagger animations trigger correctly on mobile"
+      ]
+    },
+    {
+      "id": "REQ-39",
+      "text": "Make the Testimonials section (TestimonialsSection.tsx) fully responsive: display testimonial cards in a 1-column layout on mobile, 2 columns on tablet, and 3 columns on desktop. Cards must not overflow horizontally. Quote text, author name, and company info must all be readable on small screens.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "make it both mobile and web friendly"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Testimonial cards display in 1 column on screens <640px",
+        "Testimonial cards display in 2 columns on screens 640px–1023px",
+        "Testimonial cards display in 3 columns on screens ≥1024px",
+        "No horizontal overflow on any breakpoint",
+        "All card text is legible on mobile"
+      ]
+    },
+    {
+      "id": "REQ-40",
+      "text": "Make the Contact section (ContactSection.tsx) fully responsive: on mobile, stack the info panel (with phone/email links) above the contact form in a single-column layout; on desktop, display them side by side. Form fields (Name, Email, Company, Message) must be full-width and touch-friendly on mobile. The submit button must have a minimum tap target size of 44px height.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "make it both mobile and web friendly"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On mobile (<768px), the info panel stacks above the form in a single column",
+        "On desktop (≥768px), the info panel and form display side by side",
+        "Form inputs are full-width on mobile with adequate padding for touch interaction",
+        "Submit button height is at least 44px on mobile",
+        "Phone (tel:) and email (mailto:) links remain clickable and visible on all breakpoints"
+      ]
+    },
+    {
+      "id": "REQ-41",
+      "text": "Make the Footer (Footer.tsx) fully responsive: on mobile, stack the brand info, navigation columns (Services, Company, Contact), and contact details vertically in a single column; on desktop, display them in a multi-column horizontal layout. Social media icons must have adequate tap target sizes (at least 44×44px) on mobile. All text must remain readable with sufficient contrast on all breakpoints.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "make it both mobile and web friendly"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On mobile (<640px), all footer columns stack vertically",
+        "On desktop (≥768px), footer displays in a multi-column horizontal layout",
+        "Social media icon tap targets are at least 44×44px on mobile",
+        "All footer text (brand name, tagline, links, contact details, copyright) is legible on mobile",
+        "No horizontal scroll or content overflow on mobile"
+      ]
+    },
+    {
+      "id": "REQ-42",
+      "text": "Apply global responsive typography and spacing adjustments across all sections: use Tailwind responsive prefixes (sm:, md:, lg:) to scale section padding, heading sizes, body text sizes, and button sizes appropriately across mobile, tablet, and desktop. Ensure no horizontal overflow occurs on any screen size (overflow-x: hidden on the root layout if needed). Verify the ScrollProgressBar remains fixed and functional on mobile.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "make it both mobile and web friendly"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Section vertical padding is smaller on mobile (e.g., py-12 on mobile vs py-24 on desktop)",
+        "No horizontal scroll bar appears on mobile at any viewport width from 320px upward",
+        "The ScrollProgressBar is visible and functions correctly on mobile",
+        "Body text is at least 14px on mobile for readability",
+        "All AnimationWrapper scroll-reveal animations trigger correctly on mobile viewports"
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui/",
-    "Do not modify frontend/src/main.tsx",
-    "All generated image assets must be placed in frontend/public/assets/generated/"
+    "Preserve all existing content: 8 services, contact details (phone: 7999866007, email: info@growteX.com), tagline 'From Vision to Victory', testimonials, process steps",
+    "Preserve the Taggl Labs dark agency aesthetic (dark/black backgrounds, GrowteX green accent, bold typography) on all breakpoints",
+    "Do not modify files in frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui",
+    "VideoPortfolioSection must remain removed from App.tsx",
+    "All parallax and scroll-depth animation effects must degrade gracefully on mobile (disabled or reduced)"
   ],
   "nonGoals": [
-    "Adding a physical address or map — no location was provided",
-    "Building separate multi-page routing — site remains a single-page layout",
-    "Backend changes — no data persistence or API integration required",
-    "Internet Identity or authentication features"
+    "Adding any new sections or content not already present on the site",
+    "Changing the overall visual theme, color palette, or typography style",
+    "Implementing a new mobile-specific design that differs from the desktop aesthetic",
+    "Adding native mobile app support or PWA features"
   ],
   "imageRequirements": {
-    "required": [
-      "GrowteX Ventures wordmark logo with bold green sans-serif lettering and a small upward-arrow or leaf growth motif, on a transparent or white background (growtex-logo.dim_400x100.png)",
-      "Hero section background: vibrant green gradient with abstract geometric growth lines and a subtle cityscape silhouette at the bottom, optimized for full-width display (hero-bg-green.dim_1920x1080.png)",
-      "About section illustration: a clean, flat-style graphic showing a business team collaborating around a growth chart with upward trend, green and white tones (about-illustration-green.dim_800x600.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

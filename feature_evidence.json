@@ -2,11 +2,27 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-design-and-render-a-custom-growtex-ventures-wordmark-logo-the-logo-should-use-bold-modern-sans-serif-typography-with-a-green-accent-matching-startupflora-com-palette-and-incorporate-a-subtle-growth-oriented-graphic-element-e-g-upward-arrow-or-leaf-motif-use-it-in-the-header-hero-and-footer-components-replacing-any-placeholder-logo",
-      "featureTitle": "Design and render a custom GrowteX Ventures wordmark logo. The logo should use bold, modern sans-serif typography with a green accent (matching startupflora.com palette) and incorporate a subtle growth-oriented graphic element (e.g., upward arrow or leaf motif). Use it in the Header, Hero, and Footer components, replacing any placeholder logo.",
+      "featureId": "feature-make-the-header-component-header-tsx-fully-responsive-implement-a-collapsible-hamburger-mobile-menu-that-opens-closes-a-full-width-dropdown-nav-on-small-screens-ensure-the-growtex-wordmark-logo-scales-appropriately-on-mobile-and-maintain-the-dark-agency-aesthetic-with-backdrop-blur-nav-links-and-the-book-a-free-call-cta-button-must-be-accessible-via-the-mobile-menu-touch-targets-must-be-at-least-44-44px",
+      "featureTitle": "Make the Header component (Header.tsx) fully responsive: implement a collapsible hamburger mobile menu that opens/closes a full-width dropdown nav on small screens, ensure the GrowteX wordmark logo scales appropriately on mobile, and maintain the dark agency aesthetic with backdrop blur. Nav links and the 'Book a Free Call' CTA button must be accessible via the mobile menu. Touch targets must be at least 44×44px.",
       "files": [
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/components/Header.tsx",
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-34"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-make-the-hero-section-herosection-tsx-fully-responsive-ensure-the-headline-subheadline-and-tagline-from-vision-to-victory-scale-down-gracefully-on-mobile-smaller-font-sizes-tighter-line-height-stack-the-two-cta-buttons-vertically-on-small-screens-and-disable-or-significantly-reduce-the-parallax-background-effect-on-mobile-to-prevent-performance-issues-and-layout-jank",
+      "featureTitle": "Make the Hero section (HeroSection.tsx) fully responsive: ensure the headline, subheadline, and tagline 'From Vision to Victory' scale down gracefully on mobile (smaller font sizes, tighter line-height), stack the two CTA buttons vertically on small screens, and disable or significantly reduce the parallax background effect on mobile to prevent performance issues and layout jank.",
+      "files": [
         "frontend/src/components/HeroSection.tsx"
       ],
       "components": [
@@ -17,60 +33,13 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-11"
+        "REQ-35"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-entire-site-s-color-palette-to-match-startupflora-com-s-visual-identity-replace-the-current-dark-navy-charcoal-theme-with-a-green-forward-clean-neutral-palette-bright-greens-whites-light-grays-and-clean-accent-tones-update-css-variables-in-frontend-src-index-css-and-frontend-tailwind-config-js-to-reflect-the-new-palette-and-apply-consistently-across-all-sections",
-      "featureTitle": "Update the entire site's color palette to match startupflora.com's visual identity: replace the current dark navy/charcoal theme with a green-forward, clean neutral palette (bright greens, whites, light grays, and clean accent tones). Update CSS variables in frontend/src/index.css and frontend/tailwind.config.js to reflect the new palette and apply consistently across all sections.",
-      "files": [
-        "frontend/src/components/AboutSection.tsx",
-        "frontend/src/components/ContactSection.tsx",
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/components/Header.tsx",
-        "frontend/src/components/HeroSection.tsx",
-        "frontend/src/components/ProcessSection.tsx",
-        "frontend/src/components/ServicesSection.tsx",
-        "frontend/src/components/TestimonialsSection.tsx",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-12"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-site-tagline-to-from-vision-to-victory-everywhere-it-appears-the-hero-section-subheadline-tagline-area-the-footer-tagline-the-html-title-and-meta-description-in-frontend-index-html-and-any-other-location-on-the-page-where-the-old-tagline-or-a-generic-descriptor-is-shown",
-      "featureTitle": "Update the site tagline to 'From Vision to Victory' everywhere it appears: the Hero section subheadline/tagline area, the Footer tagline, the HTML <title> and meta description in frontend/index.html, and any other location on the page where the old tagline or a generic descriptor is shown.",
-      "files": [
-        "frontend/index.html",
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/components/HeroSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-13"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-replace-all-service-cards-in-the-services-section-servicessection-tsx-with-the-following-8-updated-services-each-with-a-relevant-icon-and-a-short-description-1-startup-india-dpiit-registration-certification-application-assistance-2-msme-udyam-aadhaar-registration-certification-3-trademark-registration-application-services-4-digital-marketing-social-media-management-for-instagram-facebook-linkedin-youtube-5-website-development-wordpress-shopify-custom-code-6-seo-on-page-off-page-services-7-performance-advertising-services-meta-ads-google-ads-linkedin-ads-youtube-ads-lay-out-as-a-responsive-grid-3-columns-on-desktop-2-on-tablet-1-on-mobile",
-      "featureTitle": "Replace all service cards in the Services section (ServicesSection.tsx) with the following 8 updated services, each with a relevant icon and a short description: (1) Startup India DPIIT Registration & Certification Application Assistance, (2) MSME Udyam Aadhaar Registration & Certification, (3) Trademark Registration & Application Services, (4) Digital Marketing — Social Media Management for Instagram, Facebook, LinkedIn & YouTube, (5) Website Development — WordPress, Shopify & Custom Code, (6) SEO — On-Page & Off-Page Services, (7) Performance & Advertising Services — Meta Ads, Google Ads, LinkedIn Ads & YouTube Ads. Lay out as a responsive grid (3 columns on desktop, 2 on tablet, 1 on mobile).",
+      "featureId": "feature-make-the-services-section-servicessection-tsx-fully-responsive-the-service-cards-grid-must-display-1-column-on-mobile-640px-2-columns-on-tablet-640px-1024px-and-3-columns-on-desktop-1024px-card-content-icon-title-description-must-be-readable-at-all-breakpoints-scroll-depth-scale-translate-animations-must-degrade-gracefully-on-mobile-reduced-or-disabled",
+      "featureTitle": "Make the Services section (ServicesSection.tsx) fully responsive: the service cards grid must display 1 column on mobile (<640px), 2 columns on tablet (640px–1024px), and 3 columns on desktop (>1024px). Card content (icon, title, description) must be readable at all breakpoints. Scroll-depth scale/translate animations must degrade gracefully on mobile (reduced or disabled).",
       "files": [
         "frontend/src/components/ServicesSection.tsx"
       ],
@@ -82,15 +51,86 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-14"
+        "REQ-36"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-contact-details-phone-number-7999866007-and-email-info-growtex-com-to-the-contact-section-contactsection-tsx-and-the-footer-footer-tsx-in-the-contact-section-display-these-in-the-info-panel-alongside-any-existing-location-or-social-links-in-the-footer-show-them-in-the-contact-column-ensure-the-email-is-a-clickable-mailto-link-and-the-phone-is-a-clickable-tel-link",
-      "featureTitle": "Add contact details — phone number 7999866007 and email info@growteX.com — to the Contact section (ContactSection.tsx) and the Footer (Footer.tsx). In the Contact section, display these in the info panel alongside any existing location or social links. In the Footer, show them in the Contact column. Ensure the email is a clickable mailto: link and the phone is a clickable tel: link.",
+      "featureId": "feature-make-the-about-section-aboutsection-tsx-fully-responsive-on-mobile-the-split-layout-text-illustration-must-stack-vertically-with-the-illustration-below-the-text-stat-counters-must-be-arranged-in-a-single-column-or-2-column-grid-and-the-parallax-illustration-scroll-effect-must-be-disabled-on-mobile-ensure-headings-and-body-text-scale-correctly",
+      "featureTitle": "Make the About section (AboutSection.tsx) fully responsive: on mobile, the split layout (text + illustration) must stack vertically with the illustration below the text, stat counters must be arranged in a single column or 2-column grid, and the parallax illustration scroll effect must be disabled on mobile. Ensure headings and body text scale correctly.",
       "files": [
-        "frontend/src/components/ContactSection.tsx",
+        "frontend/src/components/AboutSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-37"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-make-the-process-section-processsection-tsx-fully-responsive-on-desktop-display-the-4-step-timeline-horizontally-with-connector-lines-between-steps-on-mobile-and-tablet-stack-steps-vertically-step-numbers-titles-and-descriptions-must-be-readable-at-all-breakpoints-staggered-animations-must-work-correctly-on-both-desktop-and-mobile",
+      "featureTitle": "Make the Process section (ProcessSection.tsx) fully responsive: on desktop, display the 4-step timeline horizontally with connector lines between steps; on mobile and tablet, stack steps vertically. Step numbers, titles, and descriptions must be readable at all breakpoints. Staggered animations must work correctly on both desktop and mobile.",
+      "files": [
+        "frontend/src/components/ProcessSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-38"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-make-the-testimonials-section-testimonialssection-tsx-fully-responsive-display-testimonial-cards-in-a-1-column-layout-on-mobile-2-columns-on-tablet-and-3-columns-on-desktop-cards-must-not-overflow-horizontally-quote-text-author-name-and-company-info-must-all-be-readable-on-small-screens",
+      "featureTitle": "Make the Testimonials section (TestimonialsSection.tsx) fully responsive: display testimonial cards in a 1-column layout on mobile, 2 columns on tablet, and 3 columns on desktop. Cards must not overflow horizontally. Quote text, author name, and company info must all be readable on small screens.",
+      "files": [
+        "frontend/src/components/TestimonialsSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-39"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-make-the-contact-section-contactsection-tsx-fully-responsive-on-mobile-stack-the-info-panel-with-phone-email-links-above-the-contact-form-in-a-single-column-layout-on-desktop-display-them-side-by-side-form-fields-name-email-company-message-must-be-full-width-and-touch-friendly-on-mobile-the-submit-button-must-have-a-minimum-tap-target-size-of-44px-height",
+      "featureTitle": "Make the Contact section (ContactSection.tsx) fully responsive: on mobile, stack the info panel (with phone/email links) above the contact form in a single-column layout; on desktop, display them side by side. Form fields (Name, Email, Company, Message) must be full-width and touch-friendly on mobile. The submit button must have a minimum tap target size of 44px height.",
+      "files": [
+        "frontend/src/components/ContactSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-40"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-make-the-footer-footer-tsx-fully-responsive-on-mobile-stack-the-brand-info-navigation-columns-services-company-contact-and-contact-details-vertically-in-a-single-column-on-desktop-display-them-in-a-multi-column-horizontal-layout-social-media-icons-must-have-adequate-tap-target-sizes-at-least-44-44px-on-mobile-all-text-must-remain-readable-with-sufficient-contrast-on-all-breakpoints",
+      "featureTitle": "Make the Footer (Footer.tsx) fully responsive: on mobile, stack the brand info, navigation columns (Services, Company, Contact), and contact details vertically in a single column; on desktop, display them in a multi-column horizontal layout. Social media icons must have adequate tap target sizes (at least 44×44px) on mobile. All text must remain readable with sufficient contrast on all breakpoints.",
+      "files": [
         "frontend/src/components/Footer.tsx"
       ],
       "components": [
@@ -101,7 +141,27 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-15"
+        "REQ-41"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-global-responsive-typography-and-spacing-adjustments-across-all-sections-use-tailwind-responsive-prefixes-sm-md-lg-to-scale-section-padding-heading-sizes-body-text-sizes-and-button-sizes-appropriately-across-mobile-tablet-and-desktop-ensure-no-horizontal-overflow-occurs-on-any-screen-size-overflow-x-hidden-on-the-root-layout-if-needed-verify-the-scrollprogressbar-remains-fixed-and-functional-on-mobile",
+      "featureTitle": "Apply global responsive typography and spacing adjustments across all sections: use Tailwind responsive prefixes (sm:, md:, lg:) to scale section padding, heading sizes, body text sizes, and button sizes appropriately across mobile, tablet, and desktop. Ensure no horizontal overflow occurs on any screen size (overflow-x: hidden on the root layout if needed). Verify the ScrollProgressBar remains fixed and functional on mobile.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AnimationWrapper.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-42"
       ],
       "confidence": "high"
     }

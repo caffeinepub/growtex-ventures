@@ -1,57 +1,48 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-26T12:39:51.399Z",
-  "summary": "The diff implements most of the requested requirements: green-forward palette in index.css and tailwind.config.js (REQ-12), 'From Vision to Victory' tagline in Hero, Footer, and index.html (REQ-13), contact details with tel: and mailto: links in ContactSection and Footer (REQ-15), logo references in Header/Hero/Footer components (REQ-11), and updated service cards (REQ-14). However, no image asset files were actually added to frontend/public/assets/generated/ (the diff shows 0 added files), which is a critical gap for REQ-11. Additionally, the 8th service card 'Business Growth Consulting' was not among the 7 explicitly named services in the spec.",
+  "generatedAt": "2026-02-26T13:57:19.378Z",
+  "summary": "The diff implements comprehensive responsive design changes across all major components (Header, HeroSection, ServicesSection, AboutSection, ProcessSection, TestimonialsSection, ContactSection, Footer, AnimationWrapper, App.tsx, index.css). The implementation covers nearly all requirements. One notable gap is the HeroSection parallax not being explicitly disabled on mobile at the component level. The ServicesSection grid appears to use 1/2/3/4 columns per the file summary rather than strictly 1/2/3 as specified. Otherwise all major requirements appear addressed.",
   "missing_requirements": [
     {
-      "id": "REQ-11",
-      "requirement": "A wordmark logo image is generated and saved to frontend/public/assets/generated/ (growtex-logo.dim_400x100.png)",
-      "reason": "The diff shows 0 added files. No image assets were added to frontend/public/assets/generated/. The components reference /assets/generated/growtex-logo.dim_400x100.png but the file itself was never created.",
+      "id": "REQ-35",
+      "requirement": "Parallax effect is disabled on mobile (useParallax hook or a media-query guard) to avoid layout issues",
+      "reason": "HeroSection.tsx uses useParallax unconditionally and applies parallaxY directly to the background div without a component-level mobile guard, unlike AboutSection which explicitly checks isMobile before applying parallaxY. The hook may handle this internally but the component diff shows no explicit mobile guard in HeroSection.",
       "evidence": [
-        "frontend/src/components/Header.tsx",
-        "frontend/src/components/HeroSection.tsx",
-        "frontend/src/components/Footer.tsx"
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "requirement": "Hero background image (hero-bg-green.dim_1920x1080.png) and about illustration (about-illustration-green.dim_800x600.png) must be generated and saved to frontend/public/assets/generated/",
-      "reason": "The diff shows 0 added files. Both image files are referenced in HeroSection.tsx and AboutSection.tsx but were never actually created as files.",
-      "evidence": [
-        "frontend/src/components/HeroSection.tsx",
-        "frontend/src/components/AboutSection.tsx"
+        "frontend/src/components/HeroSection.tsx"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "8th service card 'Business Growth Consulting' covering end-to-end growth consulting, market strategy, competitive analysis, and KPI tracking",
-      "reason": "The build request enumerates only 7 specific named services (items 1 through 7). 'Business Growth Consulting' does not appear among the specified services.",
+      "description": "ServicesSection grid uses 4 columns on larger screens in addition to 1/2/3 columns",
+      "reason": "The build request specifies only 1 column mobile, 2 columns tablet, 3 columns desktop. The file summary for ServicesSection.tsx explicitly states 'responsive 1/2/3/4 column layout', indicating a 4-column breakpoint was added that was not requested.",
       "evidence": [
-        "frontend/src/components/ServicesSection.tsx"
+        "frontend/src/components/ServicesSection.tsx",
+        "frontend-file-summaries.txt"
       ]
     },
     {
-      "description": "Open Graph meta tags (og:title, og:description, og:type) added to index.html",
-      "reason": "The build request only requires updating the HTML title and meta description. OG tags were not requested.",
+      "description": "OG meta tags added to index.html",
+      "reason": "The file summary mentions 'added OG tags' to index.html. This was not requested in any of the responsive design requirements REQ-34 through REQ-42.",
       "evidence": [
-        "frontend/index.html"
+        "frontend-file-summaries.txt"
       ]
     },
     {
-      "description": "Meta keywords tag added to index.html",
-      "reason": "The build request does not mention adding a meta keywords tag to index.html.",
+      "description": "Caffeine.ai attribution link with UTM parameters added to Footer",
+      "reason": "The Footer.tsx includes a caffeine.ai attribution link with UTM parameters. This was not part of any requirement in the build request.",
       "evidence": [
-        "frontend/index.html"
+        "frontend/src/components/Footer.tsx"
       ]
     }
   ],
-  "confidence": 0.82,
+  "confidence": 0.78,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/index.html",
+    "frontend/src/App.tsx",
     "frontend/src/components/AboutSection.tsx",
+    "frontend/src/components/AnimationWrapper.tsx",
     "frontend/src/components/ContactSection.tsx",
     "frontend/src/components/Footer.tsx",
     "frontend/src/components/Header.tsx",

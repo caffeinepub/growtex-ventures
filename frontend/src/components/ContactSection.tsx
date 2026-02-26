@@ -1,238 +1,186 @@
 import { useState } from 'react';
-import { Send, CheckCircle2, Mail, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import AnimationWrapper from './AnimationWrapper';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
-interface FormData {
-  name: string;
-  email: string;
-  company: string;
-  message: string;
-}
+const contactInfo = [
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '+91 7999866007',
+    href: 'tel:+917999866007',
+  },
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'info@growteX.com',
+    href: 'mailto:info@growteX.com',
+  },
+  {
+    icon: MapPin,
+    label: 'Location',
+    value: 'India (Serving Globally)',
+    href: null,
+  },
+  {
+    icon: Clock,
+    label: 'Hours',
+    value: 'Mon–Sat, 9AM–7PM IST',
+    href: null,
+  },
+];
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1200));
     setIsSubmitting(false);
-    setIsSubmitted(true);
+    setSubmitted(true);
   };
 
   return (
-    <section
-      id="contact"
-      className="py-24 lg:py-32 bg-green-50 relative overflow-hidden"
-    >
-      {/* Background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px section-divider" />
-      <div className="absolute inset-0 hero-glow opacity-30" />
-      <div className="absolute top-1/2 right-0 w-96 h-96 rounded-full bg-green-200/30 blur-3xl pointer-events-none -translate-y-1/2" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <AnimationWrapper className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-300 bg-green-100 text-green-700 text-sm font-medium mb-5">
-            Get In Touch
+    <section id="contact" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimationWrapper className="text-center mb-10 sm:mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 mb-4">
+            <span className="text-primary text-xs font-semibold tracking-wider uppercase">Get In Touch</span>
           </div>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-5">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-3 sm:mb-4">
             Ready to{' '}
-            <span className="text-gradient-green">Grow?</span>
+            <span className="text-primary">Grow?</span>
           </h2>
-          <p className="text-lg text-neutral-500 max-w-2xl mx-auto">
-            Let's talk about your business goals. Book a free strategy call and discover
-            how GrowteX Ventures can accelerate your growth.
+          <p className="text-sm sm:text-base md:text-lg text-foreground/60 max-w-2xl mx-auto">
+            Book a free strategy call and let's discuss how we can accelerate your business growth.
           </p>
         </AnimationWrapper>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-          {/* Contact Info */}
-          <AnimationWrapper animation="slide-left" className="lg:col-span-2">
-            <div className="space-y-8">
-              <div>
-                <h3 className="font-display text-2xl font-bold text-foreground mb-4">
-                  Let's Start a Conversation
-                </h3>
-                <p className="text-neutral-500 leading-relaxed">
-                  Whether you're looking to register your startup, build your digital presence,
-                  or run high-performance ad campaigns — we're here to help. Reach out and let's
-                  explore what's possible together.
-                </p>
+        <div className="flex flex-col md:flex-row gap-8 md:gap-10 lg:gap-16">
+          {/* Info Panel */}
+          <AnimationWrapper className="w-full md:w-2/5 lg:w-1/3">
+            <div className="bg-card border border-border/50 rounded-2xl p-6 sm:p-8 h-full">
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-5 sm:mb-6">Contact Information</h3>
+              <div className="space-y-4 sm:space-y-5">
+                {contactInfo.map((item) => (
+                  <div key={item.label} className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 min-w-[40px] bg-primary/10 rounded-xl flex items-center justify-center">
+                      <item.icon size={18} className="text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-foreground/50 mb-0.5">{item.label}</div>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors duration-200"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <span className="text-sm sm:text-base font-medium text-foreground">{item.value}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
 
-              <div className="space-y-5">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-green-100 border border-green-200 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-green-600" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-neutral-400 mb-0.5">Call / WhatsApp</div>
-                    <a
-                      href="tel:7999866007"
-                      className="text-sm font-medium text-foreground hover:text-green-600 transition-colors"
-                    >
-                      +91 7999866007
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-green-100 border border-green-200 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-green-600" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-neutral-400 mb-0.5">Email Us</div>
-                    <a
-                      href="mailto:info@growteX.com"
-                      className="text-sm font-medium text-foreground hover:text-green-600 transition-colors"
-                    >
-                      info@growteX.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Availability badge */}
-              <div className="bg-white border border-green-200 rounded-2xl p-5 shadow-card">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-green-600 text-sm font-semibold">Currently Accepting Clients</span>
-                </div>
-                <p className="text-neutral-500 text-sm">
-                  We typically respond within 24 hours. Free strategy calls are available
-                  Monday–Saturday, 9am–7pm IST.
+              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/30">
+                <p className="text-sm text-foreground/60 leading-relaxed">
+                  We typically respond within 2 hours during business hours. Book a free 30-minute strategy call to get started.
                 </p>
               </div>
             </div>
           </AnimationWrapper>
 
-          {/* Contact Form */}
-          <AnimationWrapper animation="slide-right" className="lg:col-span-3">
-            <div className="bg-white border border-green-100 rounded-3xl p-8 lg:p-10 shadow-card">
-              {isSubmitted ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-green-100 border border-green-300 flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle2 className="w-8 h-8 text-green-600" />
+          {/* Form */}
+          <AnimationWrapper delay={200} className="w-full md:w-3/5 lg:w-2/3">
+            <div className="bg-card border border-border/50 rounded-2xl p-6 sm:p-8">
+              {submitted ? (
+                <div className="flex flex-col items-center justify-center h-full py-8 sm:py-12 text-center">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+                    <span className="text-2xl sm:text-3xl">✓</span>
                   </div>
-                  <h3 className="font-display text-2xl font-bold text-foreground mb-3">
-                    Message Sent!
-                  </h3>
-                  <p className="text-neutral-500 mb-6">
-                    Thank you for reaching out. Our team will get back to you within 24 hours.
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Message Sent!</h3>
+                  <p className="text-sm sm:text-base text-foreground/60">
+                    Thank you for reaching out. We'll get back to you within 2 hours.
                   </p>
-                  <Button
-                    onClick={() => {
-                      setIsSubmitted(false);
-                      setFormData({ name: '', email: '', company: '', message: '' });
-                    }}
-                    variant="outline"
-                    className="border-green-200 hover:bg-green-50 text-green-700"
-                  >
-                    Send Another Message
-                  </Button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-sm font-medium text-foreground">
-                        Full Name <span className="text-green-500">*</span>
-                      </Label>
-                      <Input
-                        id="name"
-                        name="name"
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground/80 mb-1.5">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
                         value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Your Name"
-                        required
-                        className="bg-green-50/50 border-green-200 focus:border-green-400 focus:ring-green-400/20 placeholder:text-neutral-400 rounded-xl h-11"
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Your name"
+                        className="w-full bg-background border border-border/60 rounded-xl px-4 py-3 min-h-[44px] text-sm text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all duration-200"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-sm font-medium text-foreground">
-                        Email Address <span className="text-green-500">*</span>
-                      </Label>
-                      <Input
-                        id="email"
-                        name="email"
+                    <div>
+                      <label className="block text-sm font-medium text-foreground/80 mb-1.5">
+                        Email Address *
+                      </label>
+                      <input
                         type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="you@company.com"
                         required
-                        className="bg-green-50/50 border-green-200 focus:border-green-400 focus:ring-green-400/20 placeholder:text-neutral-400 rounded-xl h-11"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="your@email.com"
+                        className="w-full bg-background border border-border/60 rounded-xl px-4 py-3 min-h-[44px] text-sm text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all duration-200"
                       />
                     </div>
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="company" className="text-sm font-medium text-foreground">
-                      Company / Business Name
-                    </Label>
-                    <Input
-                      id="company"
-                      name="company"
+                  <div>
+                    <label className="block text-sm font-medium text-foreground/80 mb-1.5">
+                      Company Name
+                    </label>
+                    <input
+                      type="text"
                       value={formData.company}
-                      onChange={handleChange}
-                      placeholder="Your Business Name"
-                      className="bg-green-50/50 border-green-200 focus:border-green-400 focus:ring-green-400/20 placeholder:text-neutral-400 rounded-xl h-11"
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      placeholder="Your company"
+                      className="w-full bg-background border border-border/60 rounded-xl px-4 py-3 min-h-[44px] text-sm text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all duration-200"
                     />
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm font-medium text-foreground">
-                      Message <span className="text-green-500">*</span>
-                    </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us about your business goals and how we can help..."
+                  <div>
+                    <label className="block text-sm font-medium text-foreground/80 mb-1.5">
+                      Message *
+                    </label>
+                    <textarea
                       required
-                      rows={5}
-                      className="bg-green-50/50 border-green-200 focus:border-green-400 focus:ring-green-400/20 placeholder:text-neutral-400 rounded-xl resize-none"
+                      rows={4}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Tell us about your business and goals..."
+                      className="w-full bg-background border border-border/60 rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all duration-200 resize-none"
                     />
                   </div>
-
-                  <Button
+                  <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 rounded-xl green-glow-btn transition-all duration-300 text-base"
+                    className="w-full sm:w-auto bg-primary text-primary-foreground px-8 py-3 min-h-[48px] rounded-full text-base font-bold hover:bg-primary/90 transition-all duration-200 hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
-                      <span className="flex items-center gap-2">
-                        <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                        </svg>
+                      <>
+                        <span className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
                         Sending...
-                      </span>
+                      </>
                     ) : (
-                      <span className="flex items-center gap-2">
-                        <Send className="w-4 h-4" />
-                        Send Message
-                      </span>
+                      'Send Message'
                     )}
-                  </Button>
+                  </button>
                 </form>
               )}
             </div>
